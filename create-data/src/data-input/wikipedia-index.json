@@ -1,0 +1,8 @@
+{
+	"title":"Wikipedia",
+	"format":3,
+	"revision":"frequency_v2",
+	"description":"v0.1: Only change is the shortened title + addition of metadata\nv1: Reserved version; never completed\nv2: Moved to a much larger dataset. List goes up to about 850k now...",
+	"author":"Thermospore",
+	"url":"https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists/Japanese2015_10000"
+}
