@@ -2,7 +2,12 @@
 - [x] Populate the backend with the data (local)
 - [x] Return data from a sample query
 - [x] Figure out how to return a list of words that were not found
-- [ ] Reject input of over 1000 words
+- [x] Reject input of over 1000 words
 - [x] Make the route POST and start testing from Postman
-- [ ] Design the ranking algorithm
+- [x] Protect dangerous routes with private key
+- [ ] Design the ranking algorithm (in frontend?)
   - (1/rankA) + (1/rankB) etc for all rankings that exist
+- [ ] Create super basic frontend
+- [ ] Create nice frontend
+- [ ] Make sure API is secure / rejects bad input
+- [ ] Write API tests
