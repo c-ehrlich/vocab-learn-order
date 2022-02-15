@@ -1,14 +1,21 @@
-import { getModelForClass, index, prop } from '@typegoose/typegoose';
+import {
+  getModelForClass,
+  index,
+  modelOptions,
+  prop,
+  Severity,
+} from '@typegoose/typegoose';
 
 export const privateFields = ['__v'];
 
 @index({ word: 1 })
+@modelOptions({ options: { allowMixed: Severity.ERROR } })
 export class Word {
   @prop({ required: true, unique: true })
   word!: string;
 
-  @prop({ required: true })
-  jmdict!: [string];
+  @prop({ type: String, required: true})
+  jmdict!: string[];
 
   @prop()
   animeJDrama?: number;

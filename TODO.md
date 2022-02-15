@@ -5,6 +5,8 @@
 - [x] Reject input of over 1000 words
 - [x] Make the route POST and start testing from Postman
 - [x] Protect dangerous routes with private key
+- [x] Put data in the real (online) DB
+- [x] Fix the 'setting mixed' message on server launch
 - [ ] Design the ranking algorithm (in frontend?)
   - (1/rankA) + (1/rankB) etc for all rankings that exist
 - [ ] Create super basic frontend
