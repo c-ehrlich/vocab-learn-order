@@ -11,15 +11,18 @@ import {
 } from '../service/word.service';
 
 export async function findWordsHandler(req: Request, res: Response) {
+  const inputWords = req.body.words;
+  console.log("input words", inputWords);
   // sanitize input (clear out all whitespace and punctuation, return just an array of words)
   //// maybe this is a separate function or middleware?
   // try to get all words
   // any words that we didn't find, put in a separate array
-  const words = ["食べる","学校","あnotawordあ"];
-  const learnOrder = await findManyWords(words);
+  // const inputWords = ['食べる', '学校', 'あnotawordあ'];
+
+  const words = await findManyWords(inputWords);
   // const learnOrder = omit(dbQuery, privateFields);
-  const wordsNotFound = words.length - learnOrder.length;
-  return res.json({ learnOrder, wordsNotFound });
+  const notFound = findMissingWords(inputWords, words);
+  return res.json({ words, notFound });
 }
 
 export async function fillDatabaseHandler(req: Request, res: Response) {
@@ -36,4 +39,19 @@ export async function fillDatabaseHandler(req: Request, res: Response) {
       console.log(err);
     }
   }
+}
+
+export function findMissingWords(
+  inputWordList: string[],
+  rankedWordResponse: Word[]
+) {
+  const rankedWordResponseWords = rankedWordResponse.map((item) => item.word);
+  console.log(rankedWordResponseWords);
+  const missingWords = inputWordList.filter((word) => {
+    if (!rankedWordResponseWords.includes(word)) {
+      console.log(word);
+      return true;
+    }
+  });
+  return missingWords;
 }

@@ -1,0 +1,8 @@
+- [x] Create data for backend
+- [x] Populate the backend with the data (local)
+- [x] Return data from a sample query
+- [x] Figure out how to return a list of words that were not found
+- [ ] Reject input of over 1000 words
+- [x] Make the route POST and start testing from Postman
+- [ ] Design the ranking algorithm
+  - (1/rankA) + (1/rankB) etc for all rankings that exist

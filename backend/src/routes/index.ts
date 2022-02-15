@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/healthcheck', (_, res) => res.status(200).send('Server is running :)'));
 
-router.get('/api/learnorder', findWordsHandler);
+router.post('/api/learnorder', findWordsHandler);
 
 // This route should only be active/called if you're trying to initialize a new database
 // for the word/frequency list data
