@@ -288,16 +288,8 @@ lists.forEach((freqList: { list: Format3Entry[]; name: string }) => {
 // if they have no freqencies then they will only have those keys
 // and no others.
 console.log(`Length before filtering: ${words.length}`);
-
-words = words.filter((word) => {
-  if (Object.keys(word).length > 2) {
-    return true;
-  } else {
-    console.log(word);
-    return false;
-  }
-});
-
+words = words.filter((word) =>  Object.keys(word).length > 2);
 console.log(`Length after filtering: ${words.length}`);
 
+// save to disk
 fs.writeFileSync('words-jmdict.json', JSON.stringify(words));
