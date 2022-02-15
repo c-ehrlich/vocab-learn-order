@@ -1,6 +1,5 @@
 import express from 'express';
-import { fillDatabaseHandler, findWordsHandler } from '../controller/word.controller';
-import { chunk } from 'lodash';
+import { deleteAllWordsHandler, fillDatabaseHandler, findWordsHandler } from '../controller/word.controller';
 
 const router = express.Router();
 
@@ -8,9 +7,9 @@ router.get('/healthcheck', (_, res) => res.status(200).send('Server is running :
 
 router.post('/api/learnorder', findWordsHandler);
 
-// This route should only be active/called if you're trying to initialize a new database
-// for the word/frequency list data
-// There is probably a better way to do this than having a commented API route ;-)
-// router.get('/api/filldatabase', fillDatabaseHandler);
+// These routes require the private key to be send in the request body
+// Nonetheless there is probably a better way to do this than having API routes ;-)
+router.post('/api/filldatabase', fillDatabaseHandler);
+router.delete('/api/deletedatabase', deleteAllWordsHandler);
 
 export default router;
