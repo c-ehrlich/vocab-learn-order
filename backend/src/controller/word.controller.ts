@@ -1,24 +1,20 @@
 import { Request, Response } from 'express';
-import { chunk, omit } from 'lodash';
-import { privateFields, Word } from '../model/word.model';
+import { chunk } from 'lodash';
+import { Word } from '../model/word.model';
+import config from 'config';
 
 import {
-  createOneWord,
   createManyWords,
-  findOneWord,
   findManyWords,
-  deleteAllWords,
 } from '../service/word.service';
 
+/**
+ * We are assuming that input is sanitized in the frontend
+ * So inputWords should be an array of strings
+ */
 export async function findWordsHandler(req: Request, res: Response) {
   const inputWords = req.body.words;
-  console.log("input words", inputWords);
-  // sanitize input (clear out all whitespace and punctuation, return just an array of words)
-  //// maybe this is a separate function or middleware?
-  // try to get all words
-  // any words that we didn't find, put in a separate array
-  // const inputWords = ['食べる', '学校', 'あnotawordあ'];
-
+  
   if (inputWords.length > 1000) {
     return res.json({
       error: 'Please submit under 1000 words',
@@ -26,12 +22,16 @@ export async function findWordsHandler(req: Request, res: Response) {
   }
 
   const words = await findManyWords(inputWords);
-  // const learnOrder = omit(dbQuery, privateFields);
+  
   const notFound = findMissingWords(inputWords, words);
+  
   return res.json({ words, notFound });
 }
 
 export async function fillDatabaseHandler(req: Request, res: Response) {
+  const privateKeyCandidate = req.body.privateKey;
+  const privateKey = config.get<string>('privateKey');
+
   const words: Word[] = require('../data/words-jmdict.json');
 
   if (words.length === 193785) return 0;
@@ -47,17 +47,19 @@ export async function fillDatabaseHandler(req: Request, res: Response) {
   }
 }
 
-export function findMissingWords(
+export async function deleteAllWordsHandler(req: Request, res: Response) {
+
+}
+
+function findMissingWords(
   inputWordList: string[],
   rankedWordResponse: Word[]
 ) {
   const rankedWordResponseWords = rankedWordResponse.map((item) => item.word);
-  console.log(rankedWordResponseWords);
+
   const missingWords = inputWordList.filter((word) => {
-    if (!rankedWordResponseWords.includes(word)) {
-      console.log(word);
-      return true;
-    }
+    return (!rankedWordResponseWords.includes(word));
   });
+
   return missingWords;
 }
