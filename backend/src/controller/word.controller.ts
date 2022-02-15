@@ -19,6 +19,12 @@ export async function findWordsHandler(req: Request, res: Response) {
   // any words that we didn't find, put in a separate array
   // const inputWords = ['食べる', '学校', 'あnotawordあ'];
 
+  if (inputWords.length > 1000) {
+    return res.json({
+      error: 'Please submit under 1000 words',
+    });
+  }
+
   const words = await findManyWords(inputWords);
   // const learnOrder = omit(dbQuery, privateFields);
   const notFound = findMissingWords(inputWords, words);
