@@ -40,7 +40,9 @@ export async function fillDatabaseHandler(req: Request, res: Response) {
 
   const words: Word[] = require('../data/words-jmdict.json');
 
-  if (words.length === 193785) return 0;
+  // TODO this is mostly just a check to make sure we loaded the file successfully
+  // but the number of words should probably not be hardcoded
+  if (words.length !== 193785) return res.json({ error: "Incorrect data length" });
 
   const wordChunks = chunk(words, 1000);
   for (const chunk of wordChunks) {
