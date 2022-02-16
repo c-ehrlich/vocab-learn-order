@@ -12,9 +12,10 @@
 - [x] Update backend data to include JLPT data
   - [x] model
   - [x] schema
-- [ ] Create super basic frontend
-  - [ ] TextArea to input words
-  - [ ] Button to send them off
+- [x] Make a request from the frontend and get a successful response
+- [x] Create super basic frontend
+  - [x] TextArea to input words
+  - [x] Button to send them off
   - [ ] Sliders to control FL priority (no full defaults for now, build that later)
   - [ ] div that the response gets rendered into
 - [ ] figure out how to clean up front-end input so we get a clean request
@@ -32,9 +33,12 @@
   - [x] Tamagui - no. too new, ridiculous whitespace by default
 - [ ] Create nice frontend
 - [ ] Make sure API is secure / rejects bad input
+  - [ ] Helmet
+  - [ ] What else?
 - [ ] Write API tests
 - [ ] Make it so the data generator doesn't create duplicate JLPT entries
   - [ ] check: 明後日 should have 3, not 4 entries
+  - [ ] regenerate data, upload to dev and atlas
 
 
 - [ ] Write Readme
