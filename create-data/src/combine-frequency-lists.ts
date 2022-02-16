@@ -2,7 +2,7 @@ import { lstatSync } from 'fs';
 
 const fs = require('fs');
 
-interface IWordFrequency {
+export interface IWordFrequency {
   word: string;
   jmdict?: string[];
   animeJDrama?: number;
@@ -14,6 +14,7 @@ interface IWordFrequency {
   novels?: number;
   vn?: number;
   wikipedia?: number;
+  jlpt?: [number, string][];
 }
 
 // this is where we're putting everything
@@ -283,13 +284,52 @@ lists.forEach((freqList: { list: Format3Entry[]; name: string }) => {
   console.log(`Finished ${freqList.name} at ${new Date()}`);
 });
 
-// cull items that have no frequency data at all
-// we know that all items have a word and a JMDict definition, so
-// if they have no freqencies then they will only have those keys
-// and no others.
+/**
+ * JLPT
+ */
+const data = require('./words-jmdict-in.json');
+const jlpt01 = require('./data-input/jlpt-01.json');
+const jlpt02 = require('./data-input/jlpt-02.json');
+const jlpt03 = require('./data-input/jlpt-03.json');
+const jlpt04 = require('./data-input/jlpt-04.json');
+const jlpt = [].concat(jlpt01, jlpt02, jlpt03, jlpt04);
+
+// function to get JLPT data in all cases (the frequency list has two different formats/object structures)
+function getJLPTdata(item: any): [number, string] {
+  if (item[2].value) {
+    return [item[2].value, item[2].displayValue];
+  } else {
+    if (item[2].frequency.value) {
+      return [item[2].frequency.value, item[2].frequency.displayValue];
+    }
+  }
+  return [-1, 'ISSUE WITH JLPT']
+}
+
+// add jlpt data to existing data
+for (const word of jlpt) {
+  const searchTerm = (element: any) => element.word === word[0];
+  const indexOf = words.findIndex(searchTerm);
+  if (indexOf !== -1) {
+    if (!words[indexOf].jlpt) {
+      words[indexOf].jlpt = [getJLPTdata(word)];
+    } else {
+      words[indexOf].jlpt = words[indexOf].jlpt!.concat([getJLPTdata(word)]);
+    }
+  }
+}
+
+/**
+ * cull items that have no frequency data at all
+ * we know that all items have a word and a JMDict definition, so
+ * if they have no freqencies then they will only have those keys
+ * and no others.
+ */
 console.log(`Length before filtering: ${words.length}`);
 words = words.filter((word) =>  Object.keys(word).length > 2);
 console.log(`Length after filtering: ${words.length}`);
 
-// save to disk
+/**
+ * Save to disk
+ */
 fs.writeFileSync('words-jmdict.json', JSON.stringify(words));
