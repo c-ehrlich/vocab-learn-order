@@ -1,9 +1,11 @@
-type Props = {}
+type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <div>Header</div>
-  )
-}
+    <div>
+      <div>header</div>
+    </div>
+  );
+};
 
-export default Header
+export default Header;
