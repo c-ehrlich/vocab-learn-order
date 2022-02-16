@@ -5,4 +5,5 @@ export default {
   mongoUri: '',
   logLevel: 'info',
   privateKey: '',
+  origin: 'http://localhost:3000',
 }
