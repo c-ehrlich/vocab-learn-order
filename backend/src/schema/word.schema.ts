@@ -1,4 +1,4 @@
-import { number, object, string, TypeOf } from 'zod';
+import { array, number, object, string, tuple, TypeOf } from 'zod';
 
 export const createWordSchema = object({
   word: string({
@@ -16,6 +16,7 @@ export const createWordSchema = object({
   novels: number().optional(),
   vn: number().optional(),
   wikipedia: number().optional(),
+  jlpt: tuple([number(), string()]).array().optional(),
 });
 
 export type CreateWordInput = TypeOf<typeof createWordSchema>;

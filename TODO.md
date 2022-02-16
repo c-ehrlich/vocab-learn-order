@@ -7,9 +7,36 @@
 - [x] Protect dangerous routes with private key
 - [x] Put data in the real (online) DB
 - [x] Fix the 'setting mixed' message on server launch
+- [x] Create new backend data with JLPT data
+  - [x] both the value and displayvalue!
+- [x] Update backend data to include JLPT data
+  - [x] model
+  - [x] schema
+- [ ] Create super basic frontend
+  - [ ] TextArea to input words
+  - [ ] Button to send them off
+  - [ ] Sliders to control FL priority (no full defaults for now, build that later)
+  - [ ] div that the response gets rendered into
+- [ ] figure out how to clean up front-end input so we get a clean request
+  - [ ] strip anything inside of () or （）
+  - [ ] then do a regex to turn all space, newline, 「,」「、」 into a single space
+  - [ ] then split by ' ', make sure there are no empty elements, JSONify, send off
 - [ ] Design the ranking algorithm (in frontend?)
   - (1/rankA) + (1/rankB) etc for all rankings that exist
-- [ ] Create super basic frontend
+- [ ] Compare UI Component Libraries
+  - [x] Mantine - maybe
+  - [x] MUI - maybe
+  - [x] Ant Design - no. don't see any advantages over MUI.
+  - [x] Rebass - no. bad docs
+  - [x] Chakra - no. most showcase projects look bad
+  - [x] Tamagui - no. too new, ridiculous whitespace by default
 - [ ] Create nice frontend
 - [ ] Make sure API is secure / rejects bad input
 - [ ] Write API tests
+- [ ] Make it so the data generator doesn't create duplicate JLPT entries
+  - [ ] check: 明後日 should have 3, not 4 entries
+
+
+- [ ] Write Readme
+  - [ ] Give thanks to stuff I used
+    - [ ] JLPT Frequency List: https://github.com/stephenmk/yomichan-jlpt-vocab
