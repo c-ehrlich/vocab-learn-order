@@ -1,4 +1,6 @@
+import { Stack } from '@mui/material';
 import useStore from '../store';
+import WordCard from './WordCard';
 
 const Results = () => {
   const { serverResponse, setServerResponse } = useStore();
@@ -6,7 +8,12 @@ const Results = () => {
   return (
     <div>
       <button onClick={() => setServerResponse(null)}>back</button>
-      <div>{JSON.stringify(serverResponse)}</div>
+      <Stack spacing={2}>
+        {serverResponse?.words.map((word) => (
+          <WordCard word={word} />
+        ))}
+      </Stack>
+      <div>not found: {JSON.stringify(serverResponse?.notFound)}</div>
     </div>
   );
 };

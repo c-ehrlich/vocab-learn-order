@@ -1,16 +1,21 @@
 import Header from './components/Header';
-import Sliders from './components/Sliders';
 import Input from './components/Input';
 import Results from './components/Results';
 import useStore from './store';
+import BodyWrapper from './components/BodyWrapper';
+import { defaultTheme } from './themes/default';
+import { ThemeProvider } from '@emotion/react';
+import { CssBaseline } from '@mui/material';
 
 function App() {
   const { serverResponse } = useStore();
   return (
     <div className='App' data-testid='App'>
-      <Sliders />
-      {serverResponse ? <Results /> : <Input />}
-      <Header />
+      <ThemeProvider theme={defaultTheme}>
+        <CssBaseline />
+        <Header />
+        <BodyWrapper>{serverResponse ? <Results /> : <Input />}</BodyWrapper>
+      </ThemeProvider>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Fab, TextField } from '@mui/material';
+import { Fab, Grid, TextField } from '@mui/material';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import useStore from '../store';
 import { IServerResponse } from '../interfaces/IServerResponse';
@@ -45,9 +45,11 @@ const Input = (props: Props) => {
         id='outlined-multiline-static'
         label='Paste words here'
         multiline
-        rows={4}
+        rows={16}
         value={textInput}
         onChange={(e) => setTextInput(e.target.value)}
+        sx={{ backgroundColor: '#ffffff', marginTop: 2 }}
+        fullWidth
       />
       <Fab color='primary' aria-label='add' onClick={handleButtonClick}>
         <KeyboardArrowRightIcon />

@@ -1,4 +1,4 @@
-import { Slider, Typography } from '@mui/material';
+import { Box, Slider, Typography } from '@mui/material';
 import ValueLabelComponent from './ValueLabelComponent';
 
 type Props = {};
@@ -16,24 +16,29 @@ const frequencyLists = [
 ];
 
 const Sliders = (props: Props) => {
+  // function to set sliders value in state
+  // maybe use immer here?
+  
   return (
-    <div>
+    <Box sx={{ m: 2 }}>
       {frequencyLists.map((list) => (
-        <div>{list.title}</div>
+        <div>
+          <Typography gutterBottom>{list.title}</Typography>
+          <Slider
+            onChange={(e: Event) =>
+              console.log((e.target as HTMLInputElement).value)
+            }
+            valueLabelDisplay='auto'
+            components={{
+              ValueLabel: ValueLabelComponent,
+            }}
+            aria-label='custom thumb label'
+            sx={{ color: 'secondary.main' }}
+            defaultValue={20}
+          />
+        </div>
       ))}
-      <Typography gutterBottom>Anime & J-Drama</Typography>
-      <Slider
-        onChange={(e: Event) =>
-          console.log((e.target as HTMLInputElement).value)
-        }
-        valueLabelDisplay='auto'
-        components={{
-          ValueLabel: ValueLabelComponent,
-        }}
-        aria-label='custom thumb label'
-        defaultValue={20}
-      />
-    </div>
+    </Box>
   );
 };
 
