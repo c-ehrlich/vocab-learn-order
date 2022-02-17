@@ -10,7 +10,6 @@ import {
   IconButton,
   IconButtonProps,
   Link,
-  Stack,
   Typography,
 } from '@mui/material';
 import { IWord } from '../interfaces/IWord';
@@ -97,15 +96,23 @@ const WordCard = (props: Props) => {
         </CardActions>
         <Collapse in={expanded} timeout='auto' unmountOnExit>
           <CardContent>
-            {props.word.jlpt && props.word.jlpt.length !== 0 ? (
-              <Typography>
-                JLPT: {props.word.jlpt.map((item) => item[1]).join(', ')}
-              </Typography>
-            ) : (
-              // TODO make this nicer
-              <div>not in JLPT List</div>
-            )}
-            <Stack direction='row' spacing={1} flexWrap="wrap" justifyContent="flex-start">
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                gap: '8px',
+              }}
+            >
+              <Chip
+                label={
+                  props.word.jlpt && props.word.jlpt.length !== 0
+                    ? `JLPT: ${props.word.jlpt.map((item) => item[1]).join(', ')}`
+                    : 'Not in JLPT List'
+                }
+                color='primary'
+                variant='outlined'
+              />
               {props.word.animeJDrama && (
                 <Chip
                   label={`Anime & J-Drama: ${props.word.animeJDrama}`}
@@ -122,54 +129,54 @@ const WordCard = (props: Props) => {
               )}
               {props.word.innocent && (
                 <Chip
-                label={`Innocent: ${props.word.innocent}`}
-                color='primary'
-                variant='outlined'
-              />
+                  label={`Innocent: ${props.word.innocent}`}
+                  color='primary'
+                  variant='outlined'
+                />
               )}
               {props.word.kokugojiten && (
                 <Chip
-                label={`国語辞典: ${props.word.kokugojiten}`}
-                color='primary'
-                variant='outlined'
-              />
+                  label={`国語辞典: ${props.word.kokugojiten}`}
+                  color='primary'
+                  variant='outlined'
+                />
               )}
               {props.word.narou && (
                 <Chip
-                label={`Narou: ${props.word.narou}`}
-                color='primary'
-                variant='outlined'
-              />
+                  label={`Narou: ${props.word.narou}`}
+                  color='primary'
+                  variant='outlined'
+                />
               )}
               {props.word.netflix && (
                 <Chip
-                label={`Netflix: ${props.word.netflix}`}
-                color='primary'
-                variant='outlined'
-              />
+                  label={`Netflix: ${props.word.netflix}`}
+                  color='primary'
+                  variant='outlined'
+                />
               )}
               {props.word.novels && (
                 <Chip
-                label={`Novels: ${props.word.novels}`}
-                color='primary'
-                variant='outlined'
-              />
+                  label={`Novels: ${props.word.novels}`}
+                  color='primary'
+                  variant='outlined'
+                />
               )}
               {props.word.vn && (
                 <Chip
-                label={`Visual Novels: ${props.word.vn}`}
-                color='primary'
-                variant='outlined'
-              />
+                  label={`Visual Novels: ${props.word.vn}`}
+                  color='primary'
+                  variant='outlined'
+                />
               )}
               {props.word.wikipedia && (
                 <Chip
-                label={`Wikipedia: ${props.word.wikipedia}`}
-                color='primary'
-                variant='outlined'
-              />
+                  label={`Wikipedia: ${props.word.wikipedia}`}
+                  color='primary'
+                  variant='outlined'
+                />
               )}
-            </Stack>
+            </div>
           </CardContent>
         </Collapse>
       </Card>

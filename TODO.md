@@ -29,6 +29,7 @@
   - [x] strip anything inside of () or （）
   - [x] then do a regex to turn all space, newline, 「,」「、」 into a single space
   - [x] then split by ' ', make sure there are no empty elements, JSONify, send off
+- [x] Cards in frontend
 - [ ] Design the ranking algorithm (in frontend?)
   - (1/rankA) + (1/rankB) etc for all rankings that exist
 - [ ] Front end error handling if we get a bad server response
