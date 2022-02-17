@@ -46,5 +46,13 @@ export const defaultTheme = createTheme({
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          color: "#af6200",
+          borderColor: "#af6200",
+        }
+      }
+    }
   },
 });

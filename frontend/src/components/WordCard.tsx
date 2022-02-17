@@ -1,15 +1,25 @@
 import { styled } from '@mui/material/styles';
-import { Button, Card, CardActions, CardContent, CardHeader, Collapse, IconButton, IconButtonProps, Link, makeStyles, Typography } from '@mui/material';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  Chip,
+  Collapse,
+  IconButton,
+  IconButtonProps,
+  Link,
+  Stack,
+  Typography,
+} from '@mui/material';
 import { IWord } from '../interfaces/IWord';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { defaultTheme } from '../themes/default';
 
 type Props = {
   word: IWord;
 };
-
-const useStyles = makeStyles
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -38,19 +48,44 @@ const WordCard = (props: Props) => {
   return (
     <div>
       <Card sx={{ maxWidth: '100%' }}>
-        <CardHeader
-          title={props.word.word}
-        />
+        <CardHeader title={props.word.word} />
         <CardContent>
           <Typography variant='body1' color='text.secondary'>
-            {(props.word.jmdict).join(', ') /* the DB only has words that are in JMDict */ } 
+            {
+              props.word.jmdict.join(
+                ', '
+              ) /* the DB only has words that are in JMDict */
+            }
           </Typography>
         </CardContent>
         {/* vvv can add disableSpacing */}
         <CardActions>
-          <Link href={`https://jisho.org/search/${props.word.word}`} underline="none"><Button size="medium" variant="contained">Jisho</Button></Link>
-          <Link href={`https://youglish.com/pronounce/${props.word.word}/japanese`} color="inherit" underline="none"><Button size="medium" variant="contained">YouGlish</Button></Link>
-          <Link href={`https://www.immersionkit.com/dictionary?keyword=${props.word.word}`} color="inherit" underline="none"><Button size="medium" variant="contained">ImmersionKit</Button></Link>
+          <Link
+            href={`https://jisho.org/search/${props.word.word}`}
+            underline='none'
+          >
+            <Button size='medium' variant='contained'>
+              Jisho
+            </Button>
+          </Link>
+          <Link
+            href={`https://youglish.com/pronounce/${props.word.word}/japanese`}
+            color='inherit'
+            underline='none'
+          >
+            <Button size='medium' variant='contained'>
+              YouGlish
+            </Button>
+          </Link>
+          <Link
+            href={`https://www.immersionkit.com/dictionary?keyword=${props.word.word}`}
+            color='inherit'
+            underline='none'
+          >
+            <Button size='medium' variant='contained'>
+              ImmersionKit
+            </Button>
+          </Link>
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}
@@ -62,16 +97,79 @@ const WordCard = (props: Props) => {
         </CardActions>
         <Collapse in={expanded} timeout='auto' unmountOnExit>
           <CardContent>
-            {(props.word.jlpt && props.word.jlpt.length !== 0) && <Typography>JLPT: {props.word.jlpt.map(item => item[1]).join(', ')}</Typography>}
-            {props.word.animeJDrama && <Typography>Anime & J-Drama: {props.word.animeJDrama}</Typography>}
-            {props.word.bccwj && <Typography>BCCWJ: {props.word.bccwj}</Typography>}
-            {props.word.innocent && <Typography>Innocent: {props.word.innocent}</Typography>}
-            {props.word.kokugojiten && <Typography>国語辞典: {props.word.kokugojiten}</Typography>}
-            {props.word.narou && <Typography>Narou: {props.word.narou}</Typography>}
-            {props.word.netflix && <Typography>Netflix: {props.word.netflix}</Typography>}
-            {props.word.novels&& <Typography>Novels: {props.word.novels}</Typography>}
-            {props.word.vn && <Typography>Visual Novels: {props.word.vn}</Typography>}
-            {props.word.wikipedia && <Typography>Wikipedia: {props.word.wikipedia}</Typography>}
+            {props.word.jlpt && props.word.jlpt.length !== 0 ? (
+              <Typography>
+                JLPT: {props.word.jlpt.map((item) => item[1]).join(', ')}
+              </Typography>
+            ) : (
+              // TODO make this nicer
+              <div>not in JLPT List</div>
+            )}
+            <Stack direction='row' spacing={1} flexWrap="wrap" justifyContent="flex-start">
+              {props.word.animeJDrama && (
+                <Chip
+                  label={`Anime & J-Drama: ${props.word.animeJDrama}`}
+                  color='primary'
+                  variant='outlined'
+                />
+              )}
+              {props.word.bccwj && (
+                <Chip
+                  label={`BCCWJ: ${props.word.bccwj}`}
+                  color='primary'
+                  variant='outlined'
+                />
+              )}
+              {props.word.innocent && (
+                <Chip
+                label={`Innocent: ${props.word.innocent}`}
+                color='primary'
+                variant='outlined'
+              />
+              )}
+              {props.word.kokugojiten && (
+                <Chip
+                label={`国語辞典: ${props.word.kokugojiten}`}
+                color='primary'
+                variant='outlined'
+              />
+              )}
+              {props.word.narou && (
+                <Chip
+                label={`Narou: ${props.word.narou}`}
+                color='primary'
+                variant='outlined'
+              />
+              )}
+              {props.word.netflix && (
+                <Chip
+                label={`Netflix: ${props.word.netflix}`}
+                color='primary'
+                variant='outlined'
+              />
+              )}
+              {props.word.novels && (
+                <Chip
+                label={`Novels: ${props.word.novels}`}
+                color='primary'
+                variant='outlined'
+              />
+              )}
+              {props.word.vn && (
+                <Chip
+                label={`Visual Novels: ${props.word.vn}`}
+                color='primary'
+                variant='outlined'
+              />
+              )}
+              {props.word.wikipedia && (
+                <Chip
+                label={`Wikipedia: ${props.word.wikipedia}`}
+                color='primary'
+                variant='outlined'
+              />
+              )}
+            </Stack>
           </CardContent>
         </Collapse>
       </Card>
