@@ -1,16 +1,14 @@
-import useStore from "../store"
+import useStore from '../store';
 
-type Props = {}
-
-const Results = (props: Props) => {
-  const { serverResponse } = useStore();
+const Results = () => {
+  const { serverResponse, setServerResponse } = useStore();
 
   return (
-    <div>{JSON.stringify(serverResponse)}</div>
-    // if no server response: just a fragment
-    // if serverResponse: the response, organized, plus a button to make another search
-    // (which just sets the response to null)
-  )
-}
+    <div>
+      <button onClick={() => setServerResponse(null)}>back</button>
+      <div>{JSON.stringify(serverResponse)}</div>
+    </div>
+  );
+};
 
-export default Results
+export default Results;
