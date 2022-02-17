@@ -23,25 +23,25 @@
 - [x] Create super basic frontend
   - [x] TextArea to input words
   - [x] Button to send them off
-  - [ ] Sliders to control FL priority (no full defaults for now, build that later)
+  - [x] Sliders to control FL priority (no full defaults for now, build that later)
   - [x] div that the response gets rendered into
-- [ ] figure out how to clean up front-end input so we get a clean request
+- [x] figure out how to clean up front-end input so we get a clean request
   - [x] strip anything inside of () or （）
   - [x] then do a regex to turn all space, newline, 「,」「、」 into a single space
   - [x] then split by ' ', make sure there are no empty elements, JSONify, send off
 - [ ] Design the ranking algorithm (in frontend?)
   - (1/rankA) + (1/rankB) etc for all rankings that exist
 - [ ] Front end error handling if we get a bad server response
-- [ ] Make ResponseItem (or something like that) component
-  - [ ] The word
-  - [ ] The definition
-  - [ ] (reading?)
-  - [ ] Rank in Frequency Lists
-  - [ ] Links to...
-    - [ ] Jisho
-    - [ ] ImmersionKit
-    - [ ] YouGlish
+- [x] Make ResponseItem (or something like that) component
+  - [x] The word
+  - [x] The definition
+  - [x] Rank in Frequency Lists
+  - [x] Links to...
+    - [x] Jisho
+    - [x] ImmersionKit
+    - [x] YouGlish
 - [ ] Save slider settings in LocalStorage?
+- [ ] Make sure I'm not using a Chinese font in the frontend
 - [ ] Create nice frontend
 - [ ] Make sure API is secure / rejects bad input
   - [ ] Helmet
