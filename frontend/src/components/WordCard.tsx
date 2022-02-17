@@ -1,12 +1,15 @@
 import { styled } from '@mui/material/styles';
-import { Card, CardActions, CardContent, CardHeader, Collapse, IconButton, IconButtonProps, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardHeader, Collapse, IconButton, IconButtonProps, Link, makeStyles, Typography } from '@mui/material';
 import { IWord } from '../interfaces/IWord';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { defaultTheme } from '../themes/default';
 
 type Props = {
   word: IWord;
 };
+
+const useStyles = makeStyles
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -40,14 +43,14 @@ const WordCard = (props: Props) => {
         />
         <CardContent>
           <Typography variant='body1' color='text.secondary'>
-            {(props.word.jmdict).join(', ')}
+            {(props.word.jmdict).join(', ') /* the DB only has words that are in JMDict */ } 
           </Typography>
         </CardContent>
         {/* vvv can add disableSpacing */}
         <CardActions>
-          <a href={`https://jisho.org/search/${props.word.word}`}>Jisho</a>
-          <a href={`https://youglish.com/pronounce/${props.word.word}/japanese`}>YouGlish</a>
-          <a href={`https://www.immersionkit.com/dictionary?keyword=${props.word.word}`}>ImmersionKit</a>
+          <Link href={`https://jisho.org/search/${props.word.word}`} underline="none"><Button size="medium" variant="contained">Jisho</Button></Link>
+          <Link href={`https://youglish.com/pronounce/${props.word.word}/japanese`} color="inherit" underline="none"><Button size="medium" variant="contained">YouGlish</Button></Link>
+          <Link href={`https://www.immersionkit.com/dictionary?keyword=${props.word.word}`} color="inherit" underline="none"><Button size="medium" variant="contained">ImmersionKit</Button></Link>
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}
