@@ -42,27 +42,27 @@
     - [x] YouGlish
 - [x] Save slider settings in LocalStorage?
 - [x] Make sure I'm not using a Chinese font in the frontend
-- [ ] Create JLPT filter (none, N5, N4, N3, N2, N1)
-- [ ] Create nice frontend
+- [x] Create nice frontend
   - [x] Figure out better Search button
   - [x] Figure out better back button (in app bar?)
   - [x] Don't show frequency lists on Results page?
-  - [ ] Better item spacing on results page
-  - [ ] Filter dropdown should open in a nice location
-  - [ ] Filter dropdown should have nice padding
-  - [ ] Filter dropdown should have defaults AND manual
-- [ ] Create help menu
-- [ ] Make sure API is secure / rejects bad input
-  - [ ] Helmet
-  - [ ] What else?
+  - [x] Better item spacing on results page
+  - [x] Filter dropdown should open in a nice location (or just make it modal?)
+  - [x] Filter dropdown should have nice padding
+- [x] Install Helmet
+- [ ] Create help menu content
 - [ ] Write API tests (Jest)
 - [ ] Write Front End tests (React Testing)
+- [ ] Make sure API is secure / rejects bad input (type Request and Response?)
 - [ ] Make it so the data generator doesn't create duplicate JLPT entries
   - [ ] check: 明後日 should have 3, not 4 entries
   - [ ] regenerate data, upload to dev and atlas
 - [ ] Front end error handling if we get a bad server response
 
 - [ ] Deploy
+  - [ ] Server: Heroku
+  - [ ] Client: Github Pages
+    - [ ] ENV variables (2nd answer): https://stackoverflow.com/questions/53648652/how-to-use-environment-variables-in-github-page
 
 
 - [ ] Write Readme

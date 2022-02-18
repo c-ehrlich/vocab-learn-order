@@ -5,6 +5,7 @@ import connectToDb from './utils/connectToDb';
 import log from './utils/logger';
 import router from './routes';
 import cors from 'cors';
+import helmet from 'helmet';
 
 const app = express();
 app.use(
@@ -14,6 +15,8 @@ app.use(
 );
 
 app.use(express.json());
+
+app.use(helmet);
 
 app.use(router);
 
