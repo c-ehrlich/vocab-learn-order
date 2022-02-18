@@ -1,4 +1,5 @@
 import { Button, Grid, TextField } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import useStore from '../store';
@@ -7,6 +8,12 @@ import { useState } from 'react';
 import { defaultTheme } from '../themes/default';
 
 type Props = {};
+
+const InputTextField = styled(TextField)({
+  '& label.Mui-focused': {
+    color: defaultTheme.palette.secondary.dark,
+  },
+})
 
 const Input = (props: Props) => {
   const [textInput, setTextInput] = useState<string>('');
@@ -44,7 +51,7 @@ const Input = (props: Props) => {
 
   return (
     <>
-      <TextField
+      <InputTextField
         lang='ja'
         id='outlined-multiline-static'
         label='Paste words here'
@@ -52,7 +59,7 @@ const Input = (props: Props) => {
         rows={16}
         value={textInput}
         onChange={(e) => setTextInput(e.target.value)}
-        sx={{ backgroundColor: '#ffffff', marginTop: 2 }}
+        sx={{ borderColor: '#ff0000', backgroundColor: '#ffffff', marginTop: 2 }}
         fullWidth
       />
       <Grid
