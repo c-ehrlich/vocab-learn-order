@@ -6,6 +6,10 @@ import BodyWrapper from './components/BodyWrapper';
 import { defaultTheme } from './themes/default';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 function App() {
   const { serverResponse } = useStore();
