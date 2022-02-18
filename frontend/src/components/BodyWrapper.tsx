@@ -1,14 +1,10 @@
-import { Box, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import React from 'react';
 
 type Props = { children: React.ReactNode };
 
 const BodyWrapper = (props: Props) => {
-  return (
-    <Container maxWidth='md'>
-      {props.children}
-    </Container>
-  );
+  return <Container maxWidth='md'>{props.children}</Container>;
 };
 
 export default BodyWrapper;
