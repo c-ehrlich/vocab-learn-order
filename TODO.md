@@ -30,9 +30,8 @@
   - [x] then do a regex to turn all space, newline, 「,」「、」 into a single space
   - [x] then split by ' ', make sure there are no empty elements, JSONify, send off
 - [x] Cards in frontend
-- [ ] Design the ranking algorithm (in frontend?)
+- [x] Design the ranking algorithm (in frontend?)
   - (1/rankA) + (1/rankB) etc for all rankings that exist
-- [ ] Front end error handling if we get a bad server response
 - [x] Make ResponseItem (or something like that) component
   - [x] The word
   - [x] The definition
@@ -41,16 +40,29 @@
     - [x] Jisho
     - [x] ImmersionKit
     - [x] YouGlish
-- [ ] Save slider settings in LocalStorage?
-- [ ] Make sure I'm not using a Chinese font in the frontend
+- [x] Save slider settings in LocalStorage?
+- [x] Make sure I'm not using a Chinese font in the frontend
+- [ ] Create JLPT filter (none, N5, N4, N3, N2, N1)
 - [ ] Create nice frontend
+  - [x] Figure out better Search button
+  - [x] Figure out better back button (in app bar?)
+  - [x] Don't show frequency lists on Results page?
+  - [ ] Better item spacing on results page
+  - [ ] Filter dropdown should open in a nice location
+  - [ ] Filter dropdown should have nice padding
+  - [ ] Filter dropdown should have defaults AND manual
+- [ ] Create help menu
 - [ ] Make sure API is secure / rejects bad input
   - [ ] Helmet
   - [ ] What else?
-- [ ] Write API tests
+- [ ] Write API tests (Jest)
+- [ ] Write Front End tests (React Testing)
 - [ ] Make it so the data generator doesn't create duplicate JLPT entries
   - [ ] check: 明後日 should have 3, not 4 entries
   - [ ] regenerate data, upload to dev and atlas
+- [ ] Front end error handling if we get a bad server response
+
+- [ ] Deploy
 
 
 - [ ] Write Readme

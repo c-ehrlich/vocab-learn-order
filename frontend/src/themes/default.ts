@@ -53,6 +53,13 @@ export const defaultTheme = createTheme({
           borderColor: "#af6200",
         }
       }
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: '#703d00',
+        }
+      }
     }
   },
 });

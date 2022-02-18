@@ -32,19 +32,20 @@ const Header = () => {
         <Toolbar>
           <Box sx={{ flexGrow: 0 }}>
             {serverResponse ? (
-              <IconButton aria-label='back' onClick={() => setServerResponse(null)}>
+              <IconButton
+                aria-label='back'
+                onClick={() => setServerResponse(null)}
+              >
                 <ArrowBackIosNewIcon fontSize='large' />
               </IconButton>
             ) : (
-              <Tooltip title='Search settings'>
-                <IconButton
-                  color='inherit'
-                  aria-label='settings'
-                  onClick={handleOpenFrequencyMenu}
-                >
-                  <SettingsIcon fontSize='large' />
-                </IconButton>
-              </Tooltip>
+              <IconButton
+                color='inherit'
+                aria-label='settings'
+                onClick={handleOpenFrequencyMenu}
+              >
+                <SettingsIcon fontSize='large' />
+              </IconButton>
             )}
             <Menu
               sx={{ mt: '45px' }}
@@ -66,15 +67,15 @@ const Header = () => {
             </Menu>
           </Box>
           <Typography
-            variant='h6'
-            noWrap
-            component='div'
-            sx={{ flexGrow: 1, display: 'flex' }}
+            variant='h5'
+            sx={{ flexGrow: 1, display: 'flex', color: '#703d00' }}
             justifyContent='center'
           >
             Word Learn Order
           </Typography>
-          <HelpIcon fontSize='large' />
+          <IconButton aria-label='help' color='inherit'>
+            <HelpIcon fontSize='large' sx={{ color: '#703d00' }} />
+          </IconButton>
         </Toolbar>
       </Container>
     </AppBar>
