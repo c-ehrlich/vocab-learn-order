@@ -8,7 +8,7 @@ type Props = {};
 
 const Input = (props: Props) => {
   const [textInput, setTextInput] = useState<string>('');
-  const { setServerResponse } = useStore();
+  const { setServerResponse, frequencyListWeights } = useStore();
 
   const handleButtonClick = async () => {
     // parse input
@@ -27,6 +27,7 @@ const Input = (props: Props) => {
         },
         body: JSON.stringify({
           words,
+          weights: frequencyListWeights
         }),
       }
     );

@@ -9,13 +9,19 @@ import {
   findManyWords,
 } from '../service/word.service';
 import { logger } from '@typegoose/typegoose/lib/logSettings';
+import sortWords from '../utils/sortWords';
+import { IWord } from '../interfaces/IWord';
+import { IWordSortingWeights } from '../interfaces/IWordSortingWeights';
 
 /**
  * We are assuming that input is sanitized in the frontend
  * So inputWords should be an array of strings
  */
 export async function findWordsHandler(req: Request, res: Response) {
-  const inputWords = req.body.words;
+  const inputWords: string[] = req.body.words;
+  const weights: IWordSortingWeights = req.body.weights;
+
+  // TODO validate inputWords and inputWeights schema, send 400 if bad
 
   if (inputWords.length > 1000) {
     return res.json({
@@ -23,7 +29,8 @@ export async function findWordsHandler(req: Request, res: Response) {
     });
   }
 
-  const words = await findManyWords(inputWords);
+  const response = await findManyWords(inputWords);
+  const words = sortWords(response, weights);
 
   const notFound = findMissingWords(inputWords, words);
 
