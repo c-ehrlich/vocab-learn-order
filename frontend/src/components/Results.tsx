@@ -7,26 +7,22 @@ const Results = () => {
   const { serverResponse } = useStore();
 
   return (
-    <div>
+    <Stack spacing={2} marginTop={2} marginBottom={4}>
       <Typography variant='h5'>
         Words sorted by suggested Learn Order
       </Typography>
-      <Stack spacing={2}>
-        {serverResponse?.words.map((word) => (
-          <WordCard word={word} />
-        ))}
-      </Stack>
+      {serverResponse?.words.map((word) => (
+        <WordCard word={word} />
+      ))}
       {serverResponse?.notFound && serverResponse?.notFound.length > 0 && (
         <>
           <Typography variant='h5'>Words not found in JMDict</Typography>
-          <Stack spacing={2}>
-            {serverResponse?.notFound.map((word) => (
-              <WordCardMini word={word} />
-            ))}
-          </Stack>
+          {serverResponse?.notFound.map((word) => (
+            <WordCardMini word={word} />
+          ))}
         </>
       )}
-    </div>
+    </Stack>
   );
 };
 
