@@ -23,7 +23,7 @@ const Sliders = (props: Props) => {
   const { frequencyListWeights, setFrequencyListWeights } = useStore();
 
   return (
-    <Box sx={{ m: 2 }}>
+    <Box sx={{ paddingX: 4, paddingY: 2 }}>
       {frequencyLists.map((list) => (
         <div>
           <Typography gutterBottom>{list.title}</Typography>
