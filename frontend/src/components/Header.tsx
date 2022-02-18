@@ -1,4 +1,3 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,11 +11,17 @@ import HelpIcon from '@mui/icons-material/Help';
 import Sliders from './Sliders';
 import useStore from '../store';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { useState } from 'react';
+import MaterialModal from './MaterialModal';
 
 const Header = () => {
   const [anchorElFrequency, setAnchorElFrequency] =
-    React.useState<null | HTMLElement>(null);
+    useState<null | HTMLElement>(null);
   const { serverResponse, setServerResponse } = useStore();
+
+  const [helpModalOpen, setHelpModalOpen] = useState(false);
+  const handleHelpModalOpen = () => setHelpModalOpen(true);
+  const handleHelpModalClose = () => setHelpModalOpen(false);
 
   const handleOpenFrequencyMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElFrequency(event.currentTarget);
@@ -73,9 +78,19 @@ const Header = () => {
           >
             Word Learn Order
           </Typography>
-          <IconButton aria-label='help' color='inherit'>
+          <IconButton
+            aria-label='help'
+            color='inherit'
+            onClick={handleHelpModalOpen}
+          >
             <HelpIcon fontSize='large' sx={{ color: '#703d00' }} />
           </IconButton>
+          <MaterialModal
+            open={helpModalOpen}
+            handleClose={handleHelpModalClose}
+          >
+            <Typography>Hello World</Typography>
+          </MaterialModal>
         </Toolbar>
       </Container>
     </AppBar>
