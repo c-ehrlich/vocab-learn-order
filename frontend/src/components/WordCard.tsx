@@ -47,7 +47,7 @@ const WordCard = (props: Props) => {
   return (
     <div>
       <Card sx={{ maxWidth: '100%' }}>
-        <CardHeader title={props.word.word} />
+        <CardHeader lang='ja' title={props.word.word} />
         <CardContent>
           <Typography variant='body1' color='text.secondary'>
             {
@@ -136,6 +136,7 @@ const WordCard = (props: Props) => {
               )}
               {props.word.kokugojiten && (
                 <Chip
+                  lang='ja'
                   label={`国語辞典: ${props.word.kokugojiten}`}
                   color='primary'
                   variant='outlined'

@@ -43,6 +43,7 @@ const Input = (props: Props) => {
   return (
     <>
       <TextField
+        lang='ja'
         id='outlined-multiline-static'
         label='Paste words here'
         multiline
