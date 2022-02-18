@@ -8,11 +8,15 @@ import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import SettingsIcon from '@mui/icons-material/Settings';
+import HelpIcon from '@mui/icons-material/Help';
 import Sliders from './Sliders';
-
+import useStore from '../store';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 const Header = () => {
-  const [anchorElFrequency, setAnchorElFrequency] = React.useState<null | HTMLElement>(null);
+  const [anchorElFrequency, setAnchorElFrequency] =
+    React.useState<null | HTMLElement>(null);
+  const { serverResponse, setServerResponse } = useStore();
 
   const handleOpenFrequencyMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElFrequency(event.currentTarget);
@@ -23,27 +27,28 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: 'flex' }}
-          >
-            Word Learn Order
-          </Typography>
-          
+    <AppBar position='static'>
+      <Container maxWidth='md' disableGutters>
+        <Toolbar>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton color="inherit" aria-label="settings" onClick={handleOpenFrequencyMenu} sx={{ p: 0 }}>
-                <SettingsIcon />
+            {serverResponse ? (
+              <IconButton aria-label='back' onClick={() => setServerResponse(null)}>
+                <ArrowBackIosNewIcon fontSize='large' />
               </IconButton>
-            </Tooltip>
+            ) : (
+              <Tooltip title='Search settings'>
+                <IconButton
+                  color='inherit'
+                  aria-label='settings'
+                  onClick={handleOpenFrequencyMenu}
+                >
+                  <SettingsIcon fontSize='large' />
+                </IconButton>
+              </Tooltip>
+            )}
             <Menu
               sx={{ mt: '45px' }}
-              id="menu-appbar"
+              id='menu-appbar'
               anchorEl={anchorElFrequency}
               anchorOrigin={{
                 vertical: 'top',
@@ -57,14 +62,19 @@ const Header = () => {
               open={Boolean(anchorElFrequency)}
               onClose={handleCloseFrequencyMenu}
             >
-              {/* {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))} */}
               <Sliders />
             </Menu>
           </Box>
+          <Typography
+            variant='h6'
+            noWrap
+            component='div'
+            sx={{ flexGrow: 1, display: 'flex' }}
+            justifyContent='center'
+          >
+            Word Learn Order
+          </Typography>
+          <HelpIcon fontSize='large' />
         </Toolbar>
       </Container>
     </AppBar>
@@ -72,5 +82,3 @@ const Header = () => {
 };
 
 export default Header;
-
-

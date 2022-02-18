@@ -4,11 +4,10 @@ import WordCard from './WordCard';
 import WordCardMini from './WordCardMini';
 
 const Results = () => {
-  const { serverResponse, setServerResponse } = useStore();
+  const { serverResponse } = useStore();
 
   return (
     <div>
-      <button onClick={() => setServerResponse(null)}>back</button>
       <Typography variant='h5'>
         Words sorted by suggested Learn Order
       </Typography>
