@@ -26,7 +26,7 @@ const Sliders = (props: Props) => {
     <Box sx={{ paddingX: 4, paddingY: 2 }}>
       {frequencyLists.map((list) => (
         <div>
-          <Typography gutterBottom>{list.title}</Typography>
+          <Typography lang='ja' gutterBottom>{list.title}</Typography>
           <Slider
             onChange={(e: Event) => {
               console.log((e.target as HTMLInputElement).value);
