@@ -16,7 +16,7 @@ app.use(
 
 app.use(express.json());
 
-app.use(helmet);
+app.use(helmet());
 
 app.use(router);
 
