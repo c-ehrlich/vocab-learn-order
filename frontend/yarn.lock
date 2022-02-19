@@ -1275,6 +1275,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/roboto-serif@^4.5.1":
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto-serif/-/roboto-serif-4.5.1.tgz#2f0f894d1be39a22c40f5ec0f85cc13c2591737e"
+  integrity sha512-VDsrVF5oKflcxKELu1g4wLD2Y8Mkq6HJ3d2Bhf6V37LVY27DJNHkX7dcLjDyWqcUoyikjc0lCk6uTz/FlCSKhQ==
+
 "@fontsource/roboto@^4.5.3":
   version "4.5.3"
   resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.3.tgz#c729ac22c35ae1c224cde10042ce7ab356bc4dda"

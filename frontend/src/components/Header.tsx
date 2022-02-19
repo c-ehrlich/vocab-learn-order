@@ -71,7 +71,10 @@ const Header = () => {
             </Menu>
           </Box>
           <Typography
-            variant='h5'
+            fontSize='18pt'
+            fontFamily="Roboto Serif"
+            fontWeight='900'
+            letterSpacing='0'
             sx={{ flexGrow: 1, display: 'flex', color: '#703d00' }}
             justifyContent='center'
           >
