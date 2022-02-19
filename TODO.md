@@ -50,6 +50,9 @@
   - [x] Filter dropdown should open in a nice location (or just make it modal?)
   - [x] Filter dropdown should have nice padding
 - [x] Install Helmet
+- [x] Style help menu
+  - [x] slightly rounded?
+  - [x] not such a high contrast border?
 - [ ] Create help menu content
 - [ ] Write API tests (Jest)
 - [ ] Write Front End tests (React Testing)
