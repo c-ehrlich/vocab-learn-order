@@ -1,4 +1,4 @@
-import { Button, Grid, TextField } from '@mui/material';
+import { Alert, Button, Grid, Snackbar, TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -6,6 +6,7 @@ import useStore from '../store';
 import { IServerResponse } from '../interfaces/IServerResponse';
 import { defaultTheme } from '../themes/default';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 type Props = {};
 
@@ -13,11 +14,15 @@ const InputTextField = styled(TextField)({
   '& label.Mui-focused': {
     color: defaultTheme.palette.secondary.dark,
   },
-})
+});
 
 const Input = (props: Props) => {
   const navigate = useNavigate();
-  const { setServerResponse, frequencyListWeights, textInput, setTextInput } = useStore();
+  const { setServerResponse, frequencyListWeights, textInput, setTextInput } =
+    useStore();
+  const [badResponseSnackbarOpen, setBadResponseSnackbarOpen] =
+    useState<boolean>(false);
+  const [snackbarText, setSnackbarText] = useState<string>('');
 
   const handleSearchButtonClick = async () => {
     // parse input
@@ -26,7 +31,14 @@ const Input = (props: Props) => {
       .replace(/(\s|\n|,|、|・|·)+/gm, ' ') // remove delineation chars and consolidate whitespace
       .trim()
       .split(' '); // turn into aray
-    
+
+    // guard clause for no input
+    if (words.length === 0) {
+      setSnackbarText('Please input something');
+      setBadResponseSnackbarOpen(true);
+      return;
+    }
+
     // make request
     const Response = await fetch(
       `${process.env.REACT_APP_SERVER}/api/learnorder`,
@@ -41,18 +53,33 @@ const Input = (props: Props) => {
         }),
       }
     );
+    
     const data: IServerResponse = await Response.json();
     if (data.words.length > 0) {
       setServerResponse(data);
-      navigate("/results");
+      navigate('/results');
     } else {
-      // TODO show an error
-      console.log('server sent back 0 results');
+      setSnackbarText('Bad input - check the help menu for sample input.');
+      setBadResponseSnackbarOpen(true);
     }
   };
 
   return (
     <>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        open={badResponseSnackbarOpen}
+        autoHideDuration={3000}
+        onClose={() => setBadResponseSnackbarOpen(false)}
+      >
+        <Alert
+          onClose={() => setBadResponseSnackbarOpen(false)}
+          severity='error'
+          sx={{ width: '100%' }}
+        >
+          {snackbarText}
+        </Alert>
+      </Snackbar>
       <InputTextField
         lang='ja'
         id='outlined-multiline-static'
@@ -61,7 +88,11 @@ const Input = (props: Props) => {
         rows={16}
         value={textInput}
         onChange={(e) => setTextInput(e.target.value)}
-        sx={{ borderColor: '#ff0000', backgroundColor: '#ffffff', marginTop: 2 }}
+        sx={{
+          borderColor: '#ff0000',
+          backgroundColor: '#ffffff',
+          marginTop: 2,
+        }}
         fullWidth
       />
       <Grid
