@@ -18,7 +18,7 @@ const validateResource =
       // if our schema can not be parsed
       return res
         .status(400)
-        .json({ error: e.issues.map((issue: any) => issue.message) }); // TODO send e.error or e.errors?
+        .json({ error: e.issues.map((issue: any) => issue.message).join(', ') });
     }
   };
 
