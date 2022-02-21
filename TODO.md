@@ -61,15 +61,14 @@
 - [x] Add key prop to sliders and result renders
 - [x] Create help menu content
   - [x] Add a button that creates sample data
-- [ ] Make sure bad requests give reasonable returns (can we do it all in Zod?)
+- [x] Validate schema on /api/learnorder
 - [ ] Write API tests (Jest)
 - [ ] Write Front End tests (React Testing)
-- [ ] Make sure API is secure / rejects bad input (type Request and Response?)
-  - [ ] Just in general hit the API with some bad Postman requests and see what happens
 - [ ] Make it so the data generator doesn't create duplicate JLPT entries
   - [ ] check: 明後日 should have 3, not 4 entries
   - [ ] regenerate data, upload to dev and atlas
 - [ ] Front end error handling if we get a bad server response
+- [ ] Frontend: flash some kind of message if we get >1 not found words, but 0 found words
 
 
 - [ ] Deploy

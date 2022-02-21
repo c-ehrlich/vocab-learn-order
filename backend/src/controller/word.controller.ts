@@ -12,12 +12,13 @@ import { logger } from '@typegoose/typegoose/lib/logSettings';
 import sortWords from '../utils/sortWords';
 import { IWord } from '../interfaces/IWord';
 import { IWordSortingWeights } from '../interfaces/IWordSortingWeights';
+import { SearchWordsInput } from '../schema/word.schema';
 
 /**
  * We are assuming that input is sanitized in the frontend
  * So inputWords should be an array of strings
  */
-export async function findWordsHandler(req: Request, res: Response) {
+export async function findWordsHandler(req: Request<{}, {}, SearchWordsInput>, res: Response) {
   const inputWords: string[] = req.body.words;
   const weights: IWordSortingWeights = req.body.weights;
 
