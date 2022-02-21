@@ -6,6 +6,7 @@ import BodyWrapper from './components/BodyWrapper';
 import { defaultTheme } from './themes/default';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
+import { BrowserRouter as Router } from 'react-router-dom';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -16,11 +17,13 @@ function App() {
   const { serverResponse } = useStore();
   return (
     <div className='App' data-testid='App'>
-      <ThemeProvider theme={defaultTheme}>
-        <CssBaseline />
-        <Header />
-        <BodyWrapper>{serverResponse ? <Results /> : <Input />}</BodyWrapper>
-      </ThemeProvider>
+      <Router>
+        <ThemeProvider theme={defaultTheme}>
+          <CssBaseline />
+          <Header />
+          <BodyWrapper>{serverResponse ? <Results /> : <Input />}</BodyWrapper>
+        </ThemeProvider>
+      </Router>
     </div>
   );
 }

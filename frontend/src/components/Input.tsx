@@ -6,6 +6,7 @@ import useStore from '../store';
 import { IServerResponse } from '../interfaces/IServerResponse';
 import { useState } from 'react';
 import { defaultTheme } from '../themes/default';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {};
 
@@ -16,10 +17,11 @@ const InputTextField = styled(TextField)({
 })
 
 const Input = (props: Props) => {
+  const navigate = useNavigate();
   const [textInput, setTextInput] = useState<string>('');
   const { setServerResponse, frequencyListWeights } = useStore();
 
-  const handleButtonClick = async () => {
+  const handleSearchButtonClick = async () => {
     // parse input
     let words: string[] = textInput
       .replace(/(\(|（)(.[^()（）]*)(\)|）)/gm, ' ') // remove anything inside () or （）
@@ -43,6 +45,7 @@ const Input = (props: Props) => {
     const data: IServerResponse = await Response.json();
     if (data.words.length > 0) {
       setServerResponse(data);
+      navigate("/results");
     } else {
       // TODO show an error
       console.log('server sent back 0 results');
@@ -90,7 +93,7 @@ const Input = (props: Props) => {
         <Grid item xs={12} sm={6}>
           <Button
             fullWidth
-            onClick={handleButtonClick}
+            onClick={handleSearchButtonClick}
             variant='contained'
             startIcon={<SearchIcon />}
             size='large'

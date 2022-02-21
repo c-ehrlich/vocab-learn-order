@@ -12,8 +12,11 @@ import useStore from '../store';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useState } from 'react';
 import MaterialModal from './MaterialModal';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  let navigate = useNavigate();
+
   const [anchorElFrequency, setAnchorElFrequency] =
     useState<null | HTMLElement>(null);
   const { serverResponse, setServerResponse } = useStore();
@@ -30,6 +33,11 @@ const Header = () => {
     setAnchorElFrequency(null);
   };
 
+  const handleBackButtonClick = () => {
+    setServerResponse(null);
+    navigate("/", { replace: true });
+  }
+
   return (
     <AppBar position='static'>
       <Container maxWidth='md' disableGutters>
@@ -38,7 +46,7 @@ const Header = () => {
             {serverResponse ? (
               <IconButton
                 aria-label='back'
-                onClick={() => setServerResponse(null)}
+                onClick={handleBackButtonClick}
               >
                 <ArrowBackIosNewIcon fontSize='large' />
               </IconButton>

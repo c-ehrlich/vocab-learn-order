@@ -53,14 +53,21 @@
 - [x] Style help menu
   - [x] slightly rounded?
   - [x] not such a high contrast border?
+- [x] Add favicon and don't call it 'React App'
+- [x] Maybe make the FL weighting a bit less... try 1/sqrt(FL)?
+- [x] Use React Router so we have URLs (/ and /search)
 - [ ] Create help menu content
+  - [ ] Add a button that creates sample data
+- [ ] Make sure bad requests give reasonable returns (can we do it all in Zod?)
 - [ ] Write API tests (Jest)
 - [ ] Write Front End tests (React Testing)
 - [ ] Make sure API is secure / rejects bad input (type Request and Response?)
+  - [ ] Just in general hit the API with some bad Postman requests and see what happens
 - [ ] Make it so the data generator doesn't create duplicate JLPT entries
   - [ ] check: 明後日 should have 3, not 4 entries
   - [ ] regenerate data, upload to dev and atlas
 - [ ] Front end error handling if we get a bad server response
+
 
 - [ ] Deploy
   - [ ] Server: Heroku
