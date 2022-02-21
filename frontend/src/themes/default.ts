@@ -1,4 +1,4 @@
-import { green, orange, pink } from '@mui/material/colors';
+import { orange } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 import type {} from '@mui/lab/themeAugmentation';
 
