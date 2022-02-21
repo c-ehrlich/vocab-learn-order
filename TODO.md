@@ -56,8 +56,9 @@
 - [x] Add favicon and don't call it 'React App'
 - [x] Maybe make the FL weighting a bit less... try 1/sqrt(FL)?
 - [x] Use React Router so we have URLs (/ and /search)
+- [x] Implement correct browser back button behaviour
 - [ ] Create help menu content
-  - [ ] Add a button that creates sample data
+  - [x] Add a button that creates sample data
 - [ ] REGEX: It should correctly process "軟弱（note）·魔術（note）·呪術 （note）"
 - [ ] Make sure bad requests give reasonable returns (can we do it all in Zod?)
 - [ ] Write API tests (Jest)

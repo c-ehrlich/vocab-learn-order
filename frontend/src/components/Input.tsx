@@ -23,9 +23,10 @@ const Input = (props: Props) => {
     // parse input
     let words: string[] = textInput
       .replace(/(\(|（)(.[^()（）]*)(\)|）)/gm, ' ') // remove anything inside () or （）
-      .replace(/(\s|\n|,|、|・)+/gm, ' ') // remove delineation chars and consolidate whitespace
+      .replace(/(\s|\n|,|、|・|·)+/gm, ' ') // remove delineation chars and consolidate whitespace
+      .trim()
       .split(' '); // turn into aray
-
+    
     // make request
     const Response = await fetch(
       `${process.env.REACT_APP_SERVER}/api/learnorder`,
