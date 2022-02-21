@@ -64,7 +64,8 @@
 - [x] Validate schema on /api/learnorder
 - [x] Front end error handling if we get a bad server response
 - [x] Frontend: flash some kind of message if we get >1 not found words, but 0 found words
-- [ ] Write API tests (Jest)
+- [x] Weighting: set negative numbers to 0
+- [x] Write API tests (Jest)
 - [ ] Write Front End tests (React Testing)
 - [ ] Make it so the data generator doesn't create duplicate JLPT entries
   - [ ] check: 明後日 should have 3, not 4 entries
@@ -80,13 +81,14 @@
 - [ ] Write Readme
   - [ ] Screenshot
   - [ ] Tech stack:
-    - Frontend: React + TypeScript, React Router, Zustand, Material UI
-    - Backend: Node + TypeScript, Mongoose + Typegoose, Zod
+    - Frontend: React + TypeScript, React Router, Zustand, Material UI, (React Testing Library)
+    - Backend: Node + TypeScript, Mongoose + Typegoose, Zod, Jest/Supertest
     - DB: MongoDB on Atlas, about 200k documents of data I parsed myself
   - [ ] Show off cool stuff that I did
   - [ ] Say what I'm proud of
     - [ ] "real" API: TypeScript, TypeGoose, Zod
       - [ ] propery api structure / folder layout
       - [ ] Schema validation on API request
+      - [ ] end to end test suite (?, make sure that's the right expression) using Supertest
   - [ ] Give thanks to stuff I used
     - [ ] JLPT Frequency List: https://github.com/stephenmk/yomichan-jlpt-vocab
