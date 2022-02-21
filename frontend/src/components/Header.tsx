@@ -15,6 +15,15 @@ import MaterialModal from './MaterialModal';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { sampleText } from '../utils/sampleText';
+import { styled } from '@mui/material/styles';
+
+const LogoText = styled(Typography)({
+  userSelect: 'none',
+  WebkitTouchCallout: 'none',
+  WebkitUserSelect: 'none',
+  MozUserSelect: 'none',
+  msUserSelect: 'none',
+})
 
 const Header = () => {
   const navigate = useNavigate();
@@ -87,7 +96,7 @@ const Header = () => {
               <Sliders />
             </Menu>
           </Box>
-          <Typography
+          <LogoText
             fontSize='18pt'
             fontFamily="Roboto Serif"
             fontWeight='900'
@@ -96,7 +105,7 @@ const Header = () => {
             justifyContent='center'
           >
             Word Learn Order
-          </Typography>
+          </LogoText>
           <IconButton
             aria-label='help'
             color='inherit'
