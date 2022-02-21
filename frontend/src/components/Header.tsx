@@ -115,8 +115,8 @@ const Header = () => {
             open={helpModalOpen}
             handleClose={handleHelpModalClose}
           >
-            <Typography>
-              How to use:
+            <Typography>How to use:</Typography>
+            <Box>
               <ul>
                 <li>
                   Enter a list of Japanese words (just about any formatting
@@ -130,8 +130,8 @@ const Header = () => {
                   visit this site.
                 </li>
                 <li>
-                  Click <strong>Search</strong> to see your words, sorted by optimal learn order.
-                  Use{' '}
+                  Click <strong>Search</strong> to see your words, sorted by
+                  optimal learn order. Use{' '}
                   <Link href='https://chrome.google.com/webstore/detail/yomichan/ogmnaimimemjmbakcfefmnahgdfhfami'>
                     Yomichan
                   </Link>{' '}
@@ -139,12 +139,15 @@ const Header = () => {
                   cards, and get sample sentences from YouGlish or ImmersionKit.
                 </li>
               </ul>
-            </Typography>
+            </Box>
             <Grid container justifyContent='center'>
               <Button
                 onClick={handlePopulateTextClick}
                 variant='contained'
-                sx={{ backgroundColor: defaultTheme.palette.primary.main, marginTop: 1 }}
+                sx={{
+                  backgroundColor: defaultTheme.palette.primary.main,
+                  marginTop: 1,
+                }}
               >
                 Create Sample Input
               </Button>
