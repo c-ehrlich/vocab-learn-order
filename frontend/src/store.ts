@@ -1,7 +1,10 @@
 import create from 'zustand';
 import { IServerResponse } from './interfaces/IServerResponse';
 import { IFrequencyListWeights } from './interfaces/IFrequencyListWeights';
-import { getLocalStorageOrDefault, setLocalStorage } from './utils/localStorageHelpers';
+import {
+  getLocalStorageOrDefault,
+  setLocalStorage,
+} from './utils/localStorageHelpers';
 
 const defaultFrequencyListWeights: IFrequencyListWeights = {
   animeJDrama: 40,
@@ -16,17 +19,15 @@ const defaultFrequencyListWeights: IFrequencyListWeights = {
 };
 
 interface AppState {
-  serverResponse: IServerResponse | null;
-  setServerResponse: (serverResponse: IServerResponse | null) => void;
   frequencyListWeights: IFrequencyListWeights;
   setFrequencyListWeights: (freqencyListWeights: IFrequencyListWeights) => void;
+  serverResponse: IServerResponse | null;
+  setServerResponse: (serverResponse: IServerResponse | null) => void;
+  textInput: string;
+  setTextInput: (text: string) => void;
 }
 
 const useStore = create<AppState>((set) => ({
-  serverResponse: null,
-  setServerResponse: (serverResponse: IServerResponse | null) => {
-    set((state) => ({ ...state, serverResponse }));
-  },
   frequencyListWeights: getLocalStorageOrDefault(
     'frequency-list-weights',
     defaultFrequencyListWeights
@@ -35,8 +36,13 @@ const useStore = create<AppState>((set) => ({
     setLocalStorage('frequency-list-weights', frequencyListWeights);
     set((state) => ({ ...state, frequencyListWeights }));
   },
+  serverResponse: null,
+  setServerResponse: (serverResponse: IServerResponse | null) => {
+    set((state) => ({ ...state, serverResponse }));
+  },
+  textInput: '',
+  setTextInput: (textInput: string) =>
+    set((state) => ({ ...state, textInput })),
 }));
-
-
 
 export default useStore;

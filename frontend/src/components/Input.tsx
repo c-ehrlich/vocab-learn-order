@@ -18,8 +18,7 @@ const InputTextField = styled(TextField)({
 
 const Input = (props: Props) => {
   const navigate = useNavigate();
-  const [textInput, setTextInput] = useState<string>('');
-  const { setServerResponse, frequencyListWeights } = useStore();
+  const { setServerResponse, frequencyListWeights, textInput, setTextInput } = useStore();
 
   const handleSearchButtonClick = async () => {
     // parse input

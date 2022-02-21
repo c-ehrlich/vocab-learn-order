@@ -13,9 +13,12 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useState } from 'react';
 import MaterialModal from './MaterialModal';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { sampleText } from '../utils/sampleText';
 
 const Header = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+  const { setTextInput } = useStore();
 
   const [anchorElFrequency, setAnchorElFrequency] =
     useState<null | HTMLElement>(null);
@@ -36,6 +39,11 @@ const Header = () => {
   const handleBackButtonClick = () => {
     setServerResponse(null);
     navigate("/", { replace: true });
+  }
+
+  const handlePopulateTextClick = () => {
+    setTextInput(sampleText);
+    handleHelpModalClose();
   }
 
   return (
@@ -100,6 +108,7 @@ const Header = () => {
             handleClose={handleHelpModalClose}
           >
             <Typography>Hello World</Typography>
+            <Button onClick={handlePopulateTextClick}>Give me some sample text</Button>
           </MaterialModal>
         </Toolbar>
       </Container>
