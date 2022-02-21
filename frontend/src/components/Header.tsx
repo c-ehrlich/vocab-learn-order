@@ -38,6 +38,7 @@ const Header = () => {
 
   const handleBackButtonClick = () => {
     setServerResponse(null);
+    setTextInput("");
     navigate("/", { replace: true });
   }
 

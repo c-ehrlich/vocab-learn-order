@@ -4,7 +4,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import useStore from '../store';
 import { IServerResponse } from '../interfaces/IServerResponse';
-import { useState } from 'react';
 import { defaultTheme } from '../themes/default';
 import { useNavigate } from 'react-router-dom';
 
