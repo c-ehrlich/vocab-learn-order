@@ -67,8 +67,8 @@ export const searchWordsSchema = object({
         }),
       },
       { required_error: 'Frequency List weightings are required' }
-    ),
-  }),
+    ).strict("Frequency list includes unknown key(s)"),
+  }).strict("Request includes unknown key(s)"),
 });
 
 export type CreateWordInput = TypeOf<typeof createWordSchema>;
