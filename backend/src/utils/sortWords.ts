@@ -14,15 +14,15 @@ function sortWords(words: IWord[], weights: IWordSortingWeights): IWord[] {
 
   function getWeightedWordRanking(word: IWord, weights: IWordSortingWeights): number {
     return (
-      (word.animeJDrama ? weights.animeJDrama / word.animeJDrama : 0) +
-      (word.bccwj ? weights.bccwj / word.bccwj : 0) +
-      (word.innocent ? weights.innocent / word.innocent : 0) +
-      (word.kokugojiten ? weights.kokugojiten / word.kokugojiten : 0) +
-      (word.narou ? weights.narou / word.narou : 0) +
-      (word.netflix ? weights.netflix / word.netflix : 0) +
-      (word.novels ? weights.novels / word.novels : 0) +
-      (word.vn ? weights.vn / word.vn : 0) +
-      (word.wikipedia ? weights.wikipedia / word.wikipedia : 0)
+      (word.animeJDrama ? weights.animeJDrama / Math.sqrt(word.animeJDrama) : 0) +
+      (word.bccwj ? weights.bccwj / Math.sqrt(word.bccwj) : 0) +
+      (word.innocent ? weights.innocent / Math.sqrt(word.innocent) : 0) +
+      (word.kokugojiten ? weights.kokugojiten / Math.sqrt(word.kokugojiten) : 0) +
+      (word.narou ? weights.narou / Math.sqrt(word.narou) : 0) +
+      (word.netflix ? weights.netflix / Math.sqrt(word.netflix) : 0) +
+      (word.novels ? weights.novels / Math.sqrt(word.novels) : 0) +
+      (word.vn ? weights.vn / Math.sqrt(word.vn) : 0) +
+      (word.wikipedia ? weights.wikipedia / Math.sqrt(word.wikipedia) : 0)
     );
   }
 }
