@@ -25,7 +25,7 @@ const Sliders = (props: Props) => {
   return (
     <Box sx={{ paddingX: 4, paddingY: 2 }}>
       {frequencyLists.map((list) => (
-        <div>
+        <Box key={list.name}>
           <Typography lang='ja' gutterBottom>{list.title}</Typography>
           <Slider
             onChange={(e: Event) => {
@@ -45,7 +45,7 @@ const Sliders = (props: Props) => {
               frequencyListWeights[list.name as keyof IFrequencyListWeights]
             }
           />
-        </div>
+        </Box>
       ))}
     </Box>
   );
