@@ -60,6 +60,13 @@ export const defaultTheme = createTheme({
           color: '#703d00',
         }
       }
+    },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: '#703d00',
+        }
+      }
     }
   },
 });

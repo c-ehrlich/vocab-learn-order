@@ -13,9 +13,10 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useState } from 'react';
 import MaterialModal from './MaterialModal';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Button, Grid, Link } from '@mui/material';
 import { sampleText } from '../utils/sampleText';
 import { styled } from '@mui/material/styles';
+import { defaultTheme } from '../themes/default';
 
 const LogoText = styled(Typography)({
   userSelect: 'none',
@@ -23,7 +24,7 @@ const LogoText = styled(Typography)({
   WebkitUserSelect: 'none',
   MozUserSelect: 'none',
   msUserSelect: 'none',
-})
+});
 
 const Header = () => {
   const navigate = useNavigate();
@@ -47,14 +48,14 @@ const Header = () => {
 
   const handleBackButtonClick = () => {
     setServerResponse(null);
-    setTextInput("");
-    navigate("/", { replace: true });
-  }
+    setTextInput('');
+    navigate('/', { replace: true });
+  };
 
   const handlePopulateTextClick = () => {
     setTextInput(sampleText);
     handleHelpModalClose();
-  }
+  };
 
   return (
     <AppBar position='static'>
@@ -62,10 +63,7 @@ const Header = () => {
         <Toolbar>
           <Box sx={{ flexGrow: 0 }}>
             {serverResponse ? (
-              <IconButton
-                aria-label='back'
-                onClick={handleBackButtonClick}
-              >
+              <IconButton aria-label='back' onClick={handleBackButtonClick}>
                 <ArrowBackIosNewIcon fontSize='large' />
               </IconButton>
             ) : (
@@ -98,7 +96,7 @@ const Header = () => {
           </Box>
           <LogoText
             fontSize='18pt'
-            fontFamily="Roboto Serif"
+            fontFamily='Roboto Serif'
             fontWeight='900'
             letterSpacing='0'
             sx={{ flexGrow: 1, display: 'flex', color: '#703d00' }}
@@ -117,8 +115,40 @@ const Header = () => {
             open={helpModalOpen}
             handleClose={handleHelpModalClose}
           >
-            <Typography>Hello World</Typography>
-            <Button onClick={handlePopulateTextClick}>Give me some sample text</Button>
+            <Typography>
+              How to use:
+              <ul>
+                <li>
+                  Enter a list of Japanese words (just about any formatting
+                  should be ok). If you just want to demo the app, click the
+                  button below to get some sample input.
+                </li>
+                <li>
+                  Adjust the Frequency List weightings if you want, by clicking
+                  the settings button. Any changes you make will be stored on
+                  your computer so they will still be there the next time you
+                  visit this site.
+                </li>
+                <li>
+                  Click <strong>Search</strong> to see your words, sorted by optimal learn order.
+                  Use{' '}
+                  <Link href='https://chrome.google.com/webstore/detail/yomichan/ogmnaimimemjmbakcfefmnahgdfhfami'>
+                    Yomichan
+                  </Link>{' '}
+                  to create <Link href='https://apps.ankiweb.net/'>Anki</Link>{' '}
+                  cards, and get sample sentences from YouGlish or ImmersionKit.
+                </li>
+              </ul>
+            </Typography>
+            <Grid container justifyContent='center'>
+              <Button
+                onClick={handlePopulateTextClick}
+                variant='contained'
+                sx={{ backgroundColor: defaultTheme.palette.primary.main, marginTop: 1 }}
+              >
+                Create Sample Input
+              </Button>
+            </Grid>
           </MaterialModal>
         </Toolbar>
       </Container>
