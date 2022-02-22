@@ -43,7 +43,21 @@ export const defaultTheme = createTheme({
     action: {
       hoverOpacity: 0.1,
     },
-
+  },
+  typography: {
+    fontFamily: [
+      // 'EB Garamond',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
   },
   components: {
     MuiButton: {

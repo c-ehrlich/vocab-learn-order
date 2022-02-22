@@ -48,7 +48,11 @@ const WordCard = (props: Props) => {
   return (
     <div>
       <Card sx={{ maxWidth: '100%' }}>
-        <CardHeader lang='ja' title={props.word.word} />
+        <CardHeader
+          lang='ja'
+          titleTypographyProps={{ fontFamily: "Hiragino Kaku Pro, Meiryo", fontWeight: 400, fontSize: '24pt' }}
+          title={props.word.word}
+        />
         <CardContent>
           <Typography variant='body1' color='text.secondary'>
             {
@@ -59,15 +63,19 @@ const WordCard = (props: Props) => {
           </Typography>
         </CardContent>
         {/* vvv can add disableSpacing */}
-        <CardActions sx={{paddingX: 2, paddingBottom: 2}}>
+        <CardActions sx={{ paddingX: 2, paddingBottom: 2 }}>
           <Link
             href={`https://jisho.org/search/${props.word.word}`}
             underline='none'
           >
-            <Button size='medium' variant='outlined' sx={{
-              backgroundColor: COLOR_DARK,
-              color: COLOR_MID,
-            }}>
+            <Button
+              size='medium'
+              variant='outlined'
+              sx={{
+                backgroundColor: COLOR_DARK,
+                color: COLOR_MID,
+              }}
+            >
               Jisho
             </Button>
           </Link>
@@ -111,7 +119,9 @@ const WordCard = (props: Props) => {
               <Chip
                 label={
                   props.word.jlpt && props.word.jlpt.length !== 0
-                    ? `JLPT: ${props.word.jlpt.map((item) => item[1]).join(', ')}`
+                    ? `JLPT: ${props.word.jlpt
+                        .map((item) => item[1])
+                        .join(', ')}`
                     : 'Not in JLPT List'
                 }
                 color='default'

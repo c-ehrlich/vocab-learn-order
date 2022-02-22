@@ -1,12 +1,20 @@
 import { Button, Card, CardActions, CardHeader, Link } from '@mui/material';
 
-type Props = {word: string}
+type Props = { word: string };
 
 const WordCardMini = (props: Props) => {
   return (
     <div>
       <Card sx={{ maxWidth: '100%' }}>
-        <CardHeader lang='ja' title={props.word} />
+        <CardHeader
+          lang='ja'
+          title={props.word}
+          titleTypographyProps={{
+            fontFamily: 'Hiragino Kaku Pro, Meiryo',
+            fontWeight: 400,
+            fontSize: '24pt',
+          }}
+        />
         <CardActions sx={{ paddingLeft: 2, paddingBottom: 2 }}>
           <Link
             href={`https://jisho.org/search/${props.word}`}
@@ -38,6 +46,6 @@ const WordCardMini = (props: Props) => {
       </Card>
     </div>
   );
-}
+};
 
-export default WordCardMini
+export default WordCardMini;

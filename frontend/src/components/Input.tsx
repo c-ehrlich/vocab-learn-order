@@ -89,6 +89,7 @@ const Input = (props: Props) => {
         value={textInput}
         onChange={(e) => setTextInput(e.target.value)}
         sx={{
+          fontFamily: "Hiragino Kaku Pro, Meiryo",
           marginTop: 2,
           "& .MuiOutlinedInput-root": {
             "& > fieldset": {
