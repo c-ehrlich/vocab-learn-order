@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Grid, Link } from '@mui/material';
 import { sampleText } from '../utils/sampleText';
 import { styled } from '@mui/material/styles';
-import { COLOR_DARK, COLOR_LIGHT, defaultTheme } from '../themes/default';
+import { COLOR_LIGHT, defaultTheme } from '../themes/default';
 
 const LogoText = styled(Typography)({
   userSelect: 'none',

@@ -46,7 +46,7 @@ export const defaultTheme = createTheme({
   },
   typography: {
     fontFamily: [
-      // 'EB Garamond',
+      'Poppins',
       'Roboto',
       '"Helvetica Neue"',
       'Arial',
@@ -63,6 +63,8 @@ export const defaultTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          fontFamily: 'Archivo',
+          fontWeight: 700,
           backgroundColor: COLOR_DARK,
           color: COLOR_MID,
           borderColor: COLOR_DARK,
