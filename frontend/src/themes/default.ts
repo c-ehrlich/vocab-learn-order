@@ -49,8 +49,8 @@ export const defaultTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          backgroundColor: COLOR_MID,
-          color: COLOR_DARK,
+          backgroundColor: COLOR_DARK,
+          color: COLOR_MID,
           borderColor: COLOR_DARK,
           '&:hover': {
             color: COLOR_MID,

@@ -7,7 +7,7 @@ const WordCardMini = (props: Props) => {
     <div>
       <Card sx={{ maxWidth: '100%' }}>
         <CardHeader lang='ja' title={props.word} />
-        <CardActions>
+        <CardActions sx={{ paddingLeft: 2, paddingBottom: 2 }}>
           <Link
             href={`https://jisho.org/search/${props.word}`}
             underline='none'

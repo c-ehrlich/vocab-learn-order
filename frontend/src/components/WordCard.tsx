@@ -15,6 +15,7 @@ import {
 import { TWord } from '../types/TWord.type';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { COLOR_DARK, COLOR_MID } from '../themes/default';
 
 type Props = {
   word: TWord;
@@ -58,12 +59,15 @@ const WordCard = (props: Props) => {
           </Typography>
         </CardContent>
         {/* vvv can add disableSpacing */}
-        <CardActions>
+        <CardActions sx={{paddingX: 2, paddingBottom: 2}}>
           <Link
             href={`https://jisho.org/search/${props.word.word}`}
             underline='none'
           >
-            <Button size='medium' variant='contained'>
+            <Button size='medium' variant='outlined' sx={{
+              backgroundColor: COLOR_DARK,
+              color: COLOR_MID,
+            }}>
               Jisho
             </Button>
           </Link>
