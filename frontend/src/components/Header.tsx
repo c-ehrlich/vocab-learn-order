@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Grid, Link } from '@mui/material';
 import { sampleText } from '../utils/sampleText';
 import { styled } from '@mui/material/styles';
-import { defaultTheme } from '../themes/default';
+import { COLOR_DARK, COLOR_LIGHT, defaultTheme } from '../themes/default';
 
 const LogoText = styled(Typography)({
   userSelect: 'none',
@@ -58,7 +58,10 @@ const Header = () => {
   };
 
   return (
-    <AppBar position='static' sx={{ backgroundColor: defaultTheme.palette.primary.dark }}>
+    <AppBar
+      position='static'
+      sx={{ backgroundColor: defaultTheme.palette.primary.dark }}
+    >
       <Container maxWidth='md' disableGutters>
         <Toolbar>
           <Box sx={{ flexGrow: 0 }}>
@@ -98,15 +101,16 @@ const Header = () => {
             fontFamily='EB Garamond'
             fontWeight='400'
             letterSpacing={-0.5}
-            sx={{ flexGrow: 1, display: 'flex', color: defaultTheme.palette.primary.main }}
+            sx={{
+              flexGrow: 1,
+              display: 'flex',
+              color: defaultTheme.palette.primary.main,
+            }}
             justifyContent='center'
           >
             word learn order
           </LogoText>
-          <IconButton
-            aria-label='help'
-            onClick={handleHelpModalOpen}
-          >
+          <IconButton aria-label='help' onClick={handleHelpModalOpen}>
             <HelpIcon fontSize='large' />
           </IconButton>
           <MaterialModal
@@ -141,10 +145,11 @@ const Header = () => {
             <Grid container justifyContent='center'>
               <Button
                 onClick={handlePopulateTextClick}
-                variant='contained'
+                variant='outlined'
                 sx={{
-                  backgroundColor: defaultTheme.palette.primary.main,
                   marginTop: 1,
+                  backgroundColor: COLOR_DARK,
+                  color: COLOR_LIGHT,
                 }}
               >
                 Create Sample Input

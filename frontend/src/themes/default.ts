@@ -32,12 +32,18 @@ export const defaultTheme = createTheme({
       main: COLOR_MID,
       light: COLOR_LIGHT,
       dark: COLOR_DARK,
+      contrastText: COLOR_VERY_DARK,
     },
     secondary: {
       main: DONT_USE_THIS_COLOR,
       light: DONT_USE_THIS_COLOR,
       dark: DONT_USE_THIS_COLOR,
+      contrastText: DONT_USE_THIS_COLOR,
     },
+    action: {
+      hoverOpacity: 0.1,
+    },
+
   },
   components: {
     MuiButton: {
@@ -58,13 +64,6 @@ export const defaultTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: COLOR_LIGHT,
-          '&:active': {
-            // backgroundColor: DONT_USE_THIS_COLOR,
-            color: DONT_USE_THIS_COLOR,
-          },
-          '&:focus': {
-            backgroundColor: DONT_USE_THIS_COLOR,
-          }
         }
       }
     },
@@ -90,19 +89,12 @@ export const defaultTheme = createTheme({
   //       }
   //     }
   //   },
-  //   MuiIconButton: {
-  //     styleOverrides: {
-  //       root: {
-  //         color: '#703d00',
-  //       }
-  //     }
-  //   },
-    // MuiLink: {
-    //   styleOverrides: {
-    //     root: {
-    //       color: 'red',
-    //     }
-    //   }
-    // }
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: COLOR_DARK,
+        }
+      }
+    }
   },
 });
