@@ -57,6 +57,13 @@ export const defaultTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: COLOR_LIGHT,
+          '&:active': {
+            // backgroundColor: DONT_USE_THIS_COLOR,
+            color: DONT_USE_THIS_COLOR,
+          },
+          '&:focus': {
+            backgroundColor: DONT_USE_THIS_COLOR,
+          }
         }
       }
     },

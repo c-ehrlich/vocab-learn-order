@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import useStore from '../store';
 import { TServerResponse } from '../types/TServerResponse.type';
-import { COLOR_DARK, COLOR_MID, defaultTheme } from '../themes/default';
+import { COLOR_DARK, COLOR_MID } from '../themes/default';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -12,7 +12,7 @@ type Props = {};
 
 const InputTextField = styled(TextField)({
   '& label.Mui-focused': {
-    color: defaultTheme.palette.secondary.dark,
+    color: COLOR_DARK,
   },
 });
 
@@ -90,6 +90,11 @@ const Input = (props: Props) => {
         onChange={(e) => setTextInput(e.target.value)}
         sx={{
           marginTop: 2,
+          "& .MuiOutlinedInput-root": {
+            "& > fieldset": {
+              borderColor: `${COLOR_DARK} !important`
+            }
+          }
         }}
         fullWidth
       />
