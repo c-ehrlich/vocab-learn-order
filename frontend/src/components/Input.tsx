@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import useStore from '../store';
 import { TServerResponse } from '../types/TServerResponse.type';
-import { defaultTheme } from '../themes/default';
+import { COLOR_DARK, COLOR_MID, defaultTheme } from '../themes/default';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -89,8 +89,6 @@ const Input = (props: Props) => {
         value={textInput}
         onChange={(e) => setTextInput(e.target.value)}
         sx={{
-          borderColor: '#ff0000',
-          backgroundColor: '#ffffff',
           marginTop: 2,
         }}
         fullWidth
@@ -111,11 +109,6 @@ const Input = (props: Props) => {
             variant='outlined'
             startIcon={<ClearIcon />}
             size='large'
-            sx={{
-              '&:hover': {
-                backgroundColor: defaultTheme.palette.primary.light,
-              },
-            }}
           >
             Clear
           </Button>
@@ -124,11 +117,12 @@ const Input = (props: Props) => {
           <Button
             fullWidth
             onClick={handleSearchButtonClick}
-            variant='contained'
+            variant='outlined'
             startIcon={<SearchIcon />}
             size='large'
             sx={{
-              backgroundColor: defaultTheme.palette.primary.main,
+              backgroundColor: COLOR_DARK,
+              color: COLOR_MID,
             }}
           >
             Search

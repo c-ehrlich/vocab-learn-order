@@ -110,27 +110,27 @@ const WordCard = (props: Props) => {
                     ? `JLPT: ${props.word.jlpt.map((item) => item[1]).join(', ')}`
                     : 'Not in JLPT List'
                 }
-                color='primary'
+                color='default'
                 variant='outlined'
               />
               {props.word.animeJDrama && (
                 <Chip
                   label={`Anime & J-Drama: ${props.word.animeJDrama}`}
-                  color='primary'
+                  color='default'
                   variant='outlined'
                 />
               )}
               {props.word.bccwj && (
                 <Chip
                   label={`BCCWJ: ${props.word.bccwj}`}
-                  color='primary'
+                  color='default'
                   variant='outlined'
                 />
               )}
               {props.word.innocent && (
                 <Chip
                   label={`Innocent: ${props.word.innocent}`}
-                  color='primary'
+                  color='default'
                   variant='outlined'
                 />
               )}
@@ -138,42 +138,42 @@ const WordCard = (props: Props) => {
                 <Chip
                   lang='ja'
                   label={`国語辞典: ${props.word.kokugojiten}`}
-                  color='primary'
+                  color='default'
                   variant='outlined'
                 />
               )}
               {props.word.narou && (
                 <Chip
                   label={`Narou: ${props.word.narou}`}
-                  color='primary'
+                  color='default'
                   variant='outlined'
                 />
               )}
               {props.word.netflix && (
                 <Chip
                   label={`Netflix: ${props.word.netflix}`}
-                  color='primary'
+                  color='default'
                   variant='outlined'
                 />
               )}
               {props.word.novels && (
                 <Chip
                   label={`Novels: ${props.word.novels}`}
-                  color='primary'
+                  color='default'
                   variant='outlined'
                 />
               )}
               {props.word.vn && (
                 <Chip
                   label={`Visual Novels: ${props.word.vn}`}
-                  color='primary'
+                  color='default'
                   variant='outlined'
                 />
               )}
               {props.word.wikipedia && (
                 <Chip
                   label={`Wikipedia: ${props.word.wikipedia}`}
-                  color='primary'
+                  color='default'
                   variant='outlined'
                 />
               )}

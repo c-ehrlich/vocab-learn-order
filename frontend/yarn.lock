@@ -1275,6 +1275,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/eb-garamond@^4.5.4":
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/@fontsource/eb-garamond/-/eb-garamond-4.5.4.tgz#47c30c191ce0d1c5820b834a38f8cb2e51f1c0ec"
+  integrity sha512-XcijkaJmm5clCSurfyILHf6b+bGmcwABIxCs2HNnore0nYjv1DbHgjMrU7z1tZv/nMExWTwOE4x/fD7oo5LNCQ==
+
 "@fontsource/roboto-serif@^4.5.1":
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/@fontsource/roboto-serif/-/roboto-serif-4.5.1.tgz#2f0f894d1be39a22c40f5ec0f85cc13c2591737e"

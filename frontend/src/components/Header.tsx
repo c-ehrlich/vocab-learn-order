@@ -58,7 +58,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position='static'>
+    <AppBar position='static' sx={{ backgroundColor: defaultTheme.palette.primary.dark }}>
       <Container maxWidth='md' disableGutters>
         <Toolbar>
           <Box sx={{ flexGrow: 0 }}>
@@ -68,7 +68,6 @@ const Header = () => {
               </IconButton>
             ) : (
               <IconButton
-                color='inherit'
                 aria-label='settings'
                 onClick={handleOpenFrequencyMenu}
               >
@@ -95,21 +94,20 @@ const Header = () => {
             </Menu>
           </Box>
           <LogoText
-            fontSize='18pt'
-            fontFamily='Roboto Serif'
-            fontWeight='900'
-            letterSpacing='0'
-            sx={{ flexGrow: 1, display: 'flex', color: '#703d00' }}
+            fontSize='28pt'
+            fontFamily='EB Garamond'
+            fontWeight='400'
+            letterSpacing={-0.5}
+            sx={{ flexGrow: 1, display: 'flex', color: defaultTheme.palette.primary.main }}
             justifyContent='center'
           >
-            Word Learn Order
+            word learn order
           </LogoText>
           <IconButton
             aria-label='help'
-            color='inherit'
             onClick={handleHelpModalOpen}
           >
-            <HelpIcon fontSize='large' sx={{ color: '#703d00' }} />
+            <HelpIcon fontSize='large' />
           </IconButton>
           <MaterialModal
             open={helpModalOpen}

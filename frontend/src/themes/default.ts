@@ -1,4 +1,3 @@
-import { orange } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 import type {} from '@mui/lab/themeAugmentation';
 
@@ -16,57 +15,79 @@ declare module '@mui/material/styles' {
   }
 }
 
+// export const COLOR_LIGHT = '#faf9f4'; // this is what the reference used
+export const COLOR_LIGHT = '#f3ede7';
+export const COLOR_MID = '#f4e3d1';
+export const COLOR_DARK = '#607262';
+export const COLOR_VERY_DARK = '#505d51';
+const DONT_USE_THIS_COLOR = '#ff0000';
+
 export const defaultTheme = createTheme({
   palette: {
     background: {
-      default: '#fff6e1',
+      default: COLOR_MID,
     },
     primary: {
-      main: orange[100],
-      light: '#ffe6c1',
-      dark: '#b29c7c',
+      main: COLOR_MID,
+      light: COLOR_LIGHT,
+      dark: COLOR_DARK,
     },
     secondary: {
-      main: orange[600],
-      light: '#fba333',
-      dark: '#af6200',
+      main: DONT_USE_THIS_COLOR,
+      light: DONT_USE_THIS_COLOR,
+      dark: DONT_USE_THIS_COLOR,
     },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          color: '#af6200',
-          borderColor: '#af6200',
+          backgroundColor: COLOR_MID,
+          color: COLOR_DARK,
+          borderColor: COLOR_DARK,
           '&:hover': {
-            // color: 'white',
-            backgroundColor: orange[200],
-            borderColor: '#af6200',
+            color: COLOR_MID,
+            backgroundColor: COLOR_VERY_DARK,
+            borderColor: COLOR_VERY_DARK,
           },
         },
       },
     },
-    MuiChip: {
+    MuiTextField: {
       styleOverrides: {
         root: {
-          color: "#af6200",
-          borderColor: "#af6200",
+          backgroundColor: COLOR_LIGHT,
         }
       }
     },
-    MuiIconButton: {
+    MuiCard: {
       styleOverrides: {
         root: {
-          color: '#703d00',
-        }
-      }
-    },
-    MuiLink: {
-      styleOverrides: {
-        root: {
-          color: '#703d00',
+          backgroundColor: COLOR_LIGHT,
         }
       }
     }
+  //   MuiChip: {
+  //     styleOverrides: {
+  //       root: {
+  //         color: "#af6200",
+  //         borderColor: "#af6200",
+  //       }
+  //     }
+  //   },
+  //   MuiIconButton: {
+  //     styleOverrides: {
+  //       root: {
+  //         color: '#703d00',
+  //       }
+  //     }
+  //   },
+    // MuiLink: {
+    //   styleOverrides: {
+    //     root: {
+    //       color: 'red',
+    //     }
+    //   }
+    // }
   },
 });

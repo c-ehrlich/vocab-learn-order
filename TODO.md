@@ -66,6 +66,8 @@
 - [x] Frontend: flash some kind of message if we get >1 not found words, but 0 found words
 - [x] Weighting: set negative numbers to 0
 - [x] Write API tests (Jest)
+- [ ] Help menu shouldn't be able to create default input when we're already in results
+  - [ ] Do we need the help menu there at all? Or is something else maybe better?
 - [ ] Figure out how to DRY - model, schema, interface, front/backend,...
   - [ ] What's the smallest number of places I can define what my data looks like?
   - [ ] Use Types instead of interfaces, and infer them from Zod schema
