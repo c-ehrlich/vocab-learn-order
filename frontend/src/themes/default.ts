@@ -18,6 +18,7 @@ declare module '@mui/material/styles' {
 // export const COLOR_LIGHT = '#faf9f4'; // this is what the reference used
 export const COLOR_LIGHT = '#f3ede7';
 export const COLOR_MID = '#f4e3d1';
+export const COLOR_NOT_QUITE_DARK = '#7E997A'
 export const COLOR_DARK = '#607262';
 export const COLOR_VERY_DARK = '#505d51';
 const DONT_USE_THIS_COLOR = '#ff0000';
@@ -73,7 +74,14 @@ export const defaultTheme = createTheme({
           backgroundColor: COLOR_LIGHT,
         }
       }
-    }
+    },
+    MuiSlider: {
+      styleOverrides: {
+        root: {
+          color: COLOR_NOT_QUITE_DARK,
+        }
+      }
+    },
   //   MuiChip: {
   //     styleOverrides: {
   //       root: {

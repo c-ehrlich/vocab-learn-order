@@ -40,7 +40,6 @@ const Sliders = (props: Props) => {
               ValueLabel: ValueLabelComponent,
             }}
             aria-label='custom thumb label'
-            sx={{ color: 'secondary.main' }}
             value={
               frequencyListWeights[list.name as keyof TFrequencyListWeights]
             }
