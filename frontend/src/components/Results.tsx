@@ -26,7 +26,7 @@ const Results = () => {
       ))}
       {serverResponse?.notFound && serverResponse?.notFound.length > 0 && (
         <>
-          <Typography variant='h5'>Words not found in JMDict</Typography>
+          <Typography variant='h5'>Words not found in Frequency Lists</Typography>
           {serverResponse?.notFound.map((word) => (
             <WordCardMini key={word} word={word} />
           ))}
