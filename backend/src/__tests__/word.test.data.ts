@@ -1,7 +1,6 @@
-import { IWord } from "../interfaces/IWord";
-import { IWordSortingWeights } from "../interfaces/IWordSortingWeights";
+import { TFrequencyListWeights, TWord } from "../schema/word.schema";
 
-export const wordTestData: IWord[] = [
+export const wordTestData: TWord[] = [
   {
     word: '学校',
     jmdict: ['school'],
@@ -30,7 +29,7 @@ export const wordTestData: IWord[] = [
 ];
 
 export const requestTestWords: string[] = wordTestData.map(word => word.word);
-export const requestTestWeights: IWordSortingWeights = {
+export const requestTestWeights: TFrequencyListWeights = {
   animeJDrama: 40,
   bccwj: 30,
   innocent: 30,

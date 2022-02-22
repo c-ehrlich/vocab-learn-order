@@ -10,17 +10,15 @@ import {
 } from '../service/word.service';
 import { logger } from '@typegoose/typegoose/lib/logSettings';
 import sortWords from '../utils/sortWords';
-import { IWord } from '../interfaces/IWord';
-import { IWordSortingWeights } from '../interfaces/IWordSortingWeights';
-import { SearchWordsInput } from '../schema/word.schema';
+import { TFrequencyListWeights, TSearchWordsInput, TWord } from '../schema/word.schema';
 
 /**
  * We are assuming that input is sanitized in the frontend
  * So inputWords should be an array of strings
  */
-export async function findWordsHandler(req: Request<{}, {}, SearchWordsInput>, res: Response) {
+export async function findWordsHandler(req: Request<{}, {}, TSearchWordsInput>, res: Response) {
   const inputWords: string[] = req.body.words;
-  const weights: IWordSortingWeights = req.body.weights;
+  const weights: TFrequencyListWeights = req.body.weights;
 
   // TODO validate inputWords and inputWeights schema, send 400 if bad
 
@@ -46,7 +44,7 @@ export async function fillDatabaseHandler(req: Request, res: Response) {
     return res.json({ error: 'Route not accessible without private key' });
   }
 
-  const words: Word[] = require('../data/words-jmdict.json');
+  const words: TWord[] = require('../data/words-jmdict.json');
 
   // TODO this is mostly just a check to make sure we loaded the file successfully
   // but the number of words should probably not be hardcoded

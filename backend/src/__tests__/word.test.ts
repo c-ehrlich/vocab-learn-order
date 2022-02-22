@@ -8,7 +8,7 @@ import {
   requestTestWords,
   requestTestWeights,
 } from './word.test.data';
-import { IWord } from '../interfaces/IWord';
+import { TWord } from '../schema/word.schema';
 
 const app = createServer();
 
@@ -50,10 +50,10 @@ describe('Word Learn Order', () => {
         expect(body.words.length).toBe(2);
         expect(body.notFound.length).toBe(0);
         expect(
-          body.words.findIndex((element: IWord) => element.word === words[0])
+          body.words.findIndex((element: TWord) => element.word === words[0])
         ).not.toBe(-1);
         expect(
-          body.words.findIndex((element: IWord) => element.word === '学学学学')
+          body.words.findIndex((element: TWord) => element.word === '学学学学')
         ).toBe(-1);
       });
     });

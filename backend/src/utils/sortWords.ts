@@ -1,18 +1,17 @@
-import { IWord } from '../interfaces/IWord';
-import { IWordSortingWeights } from '../interfaces/IWordSortingWeights';
+import { TFrequencyListWeights, TWord } from '../schema/word.schema';
 
-function sortWords(words: IWord[], weights: IWordSortingWeights): IWord[] {
+function sortWords(words: TWord[], weights: TFrequencyListWeights): TWord[] {
   return words.sort(compareWordForSorting);
 
   function compareWordForSorting(
-    a: IWord,
-    b: IWord,
+    a: TWord,
+    b: TWord,
   ): number {
     if (getWeightedWordRanking(a, weights) < getWeightedWordRanking(b, weights)) return 1;
     return -1;
   }
 
-  function getWeightedWordRanking(word: IWord, weights: IWordSortingWeights): number {
+  function getWeightedWordRanking(word: TWord, weights: TFrequencyListWeights): number {
     return (
       (word.animeJDrama ? Math.max(weights.animeJDrama, 0) / Math.sqrt(word.animeJDrama) : 0) +
       (word.bccwj ? Math.max(weights.bccwj, 0) / Math.sqrt(word.bccwj) : 0) +

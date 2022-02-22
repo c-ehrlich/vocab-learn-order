@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import useStore from '../store';
-import { IServerResponse } from '../interfaces/IServerResponse';
+import { TServerResponse } from '../types/TServerResponse.type';
 import { defaultTheme } from '../themes/default';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -54,7 +54,7 @@ const Input = (props: Props) => {
       }
     );
     
-    const data: IServerResponse = await Response.json();
+    const data: TServerResponse = await Response.json();
     if (data.words.length > 0) {
       setServerResponse(data);
       navigate('/results');

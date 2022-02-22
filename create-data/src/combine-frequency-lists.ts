@@ -1,8 +1,12 @@
-import { lstatSync } from 'fs';
 
 const fs = require('fs');
 
-export interface IWordFrequency {
+/**
+ * In the backend we deduce the TWord type from the schema
+ * Here unfortunately we need to repeat a hardcoded version
+ * FIXME figure out a better way to do this
+ */
+export interface TWord {
   word: string;
   jmdict?: string[];
   animeJDrama?: number;
@@ -18,7 +22,7 @@ export interface IWordFrequency {
 }
 
 // this is where we're putting everything
-let words: IWordFrequency[] = [];
+let words: TWord[] = [];
 
 // Create variables that hold each Format3 Frequency List
 // [[word, "freq", freq]]
@@ -199,11 +203,11 @@ const jmDict: JMDictType[] = ([] as JMDictType[]).concat(
 //   if so, add the relevant frequency key
 //   if not, create a new item with that word key and frequency key
 for (const dictWord of jmDict) {
-  const searchTerm = (element: IWordFrequency) => element.word === dictWord[0];
+  const searchTerm = (element: TWord) => element.word === dictWord[0];
   const indexOf = words.findIndex(searchTerm);
   if (indexOf === -1) {
     // create new Object
-    const newWord: IWordFrequency = {
+    const newWord: TWord = {
       word: dictWord[0],
       jmdict: dictWord[5],
     };
@@ -265,7 +269,7 @@ const lists: { list: Format3Entry[]; name: string }[] = [
 
 lists.forEach((freqList: { list: Format3Entry[]; name: string }) => {
   for (const flEntry of freqList.list) {
-    const searchTerm = (element: IWordFrequency) => element.word === flEntry[0];
+    const searchTerm = (element: TWord) => element.word === flEntry[0];
     const indexOf = words.findIndex(searchTerm);
     if (indexOf !== -1) {
       if (!(freqList.name in words[indexOf])) {

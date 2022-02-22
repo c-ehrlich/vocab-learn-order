@@ -1,5 +1,5 @@
 import { Box, Slider, Typography } from '@mui/material';
-import { IFrequencyListWeights } from '../interfaces/IFrequencyListWeights';
+import { TFrequencyListWeights } from '../types/TFrequencyListWeights.type';
 import useStore from '../store';
 import ValueLabelComponent from './ValueLabelComponent';
 
@@ -42,7 +42,7 @@ const Sliders = (props: Props) => {
             aria-label='custom thumb label'
             sx={{ color: 'secondary.main' }}
             value={
-              frequencyListWeights[list.name as keyof IFrequencyListWeights]
+              frequencyListWeights[list.name as keyof TFrequencyListWeights]
             }
           />
         </Box>

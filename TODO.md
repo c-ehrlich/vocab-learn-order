@@ -66,10 +66,30 @@
 - [x] Frontend: flash some kind of message if we get >1 not found words, but 0 found words
 - [x] Weighting: set negative numbers to 0
 - [x] Write API tests (Jest)
+- [ ] Figure out how to DRY - model, schema, interface, front/backend,...
+  - [ ] What's the smallest number of places I can define what my data looks like?
+  - [ ] Use Types instead of interfaces, and infer them from Zod schema
+    - [*] https://github.com/colinhacks/zod/issues/53#issuecomment-738110750
+    - [ ] Currently not using the CreateWordInput / SearchWordsInput types ... USE THEM
 - [ ] Write Front End tests (React Testing)
 - [ ] Make it so the data generator doesn't create duplicate JLPT entries
   - [ ] check: 明後日 should have 3, not 4 entries
   - [ ] regenerate data, upload to dev and atlas
+
+
+- [ ] Redesign
+  - [ ] Generate an awesome theme
+    - [ ] Find a color palette: https://lospec.com/palette-list
+    - [ ] Another reference: https://www.awwwards.com/trendy-web-color-palettes-and-material-design-color-schemes-tools.html ('ENID')
+      - [*] #607262, #f4e3d1, #faf9f4
+    - [ ] Test it: https://cimdalli.github.io/mui-theme-generator/
+    - [ ] Dark and light! And add a lil switcher up top
+  - [ ] Fonts
+    - [ ] Header: Garamond? https://fonts.google.com/specimen/EB+Garamond?preview.text=botanical%20beauty&preview.text_type=custom
+      - [ ] See if I can make it more narrow like on ENID https://enid.fm/case-studies/rowse-beauty
+        - [ ] font-stretch css property?
+    - [ ] Other European text: Poppins 400? https://fonts.google.com/specimen/Poppins or lighter weight?
+    - [ ] Buttons: Archivo 700 all-caps, bit more spacing? https://fonts.google.com/specimen/Archivo
 
 
 - [ ] Deploy

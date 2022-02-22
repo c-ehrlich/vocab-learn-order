@@ -1,12 +1,12 @@
 import create from 'zustand';
-import { IServerResponse } from './interfaces/IServerResponse';
-import { IFrequencyListWeights } from './interfaces/IFrequencyListWeights';
+import { TServerResponse } from './types/TServerResponse.type';
+import { TFrequencyListWeights } from './types/TFrequencyListWeights.type';
 import {
   getLocalStorageOrDefault,
   setLocalStorage,
 } from './utils/localStorageHelpers';
 
-const defaultFrequencyListWeights: IFrequencyListWeights = {
+const defaultFrequencyListWeights: TFrequencyListWeights = {
   animeJDrama: 40,
   bccwj: 30,
   innocent: 30,
@@ -19,10 +19,10 @@ const defaultFrequencyListWeights: IFrequencyListWeights = {
 };
 
 interface AppState {
-  frequencyListWeights: IFrequencyListWeights;
-  setFrequencyListWeights: (freqencyListWeights: IFrequencyListWeights) => void;
-  serverResponse: IServerResponse | null;
-  setServerResponse: (serverResponse: IServerResponse | null) => void;
+  frequencyListWeights: TFrequencyListWeights;
+  setFrequencyListWeights: (freqencyListWeights: TFrequencyListWeights) => void;
+  serverResponse: TServerResponse | null;
+  setServerResponse: (serverResponse: TServerResponse | null) => void;
   textInput: string;
   setTextInput: (text: string) => void;
 }
@@ -32,12 +32,12 @@ const useStore = create<AppState>((set) => ({
     'frequency-list-weights',
     defaultFrequencyListWeights
   ),
-  setFrequencyListWeights: (frequencyListWeights: IFrequencyListWeights) => {
+  setFrequencyListWeights: (frequencyListWeights: TFrequencyListWeights) => {
     setLocalStorage('frequency-list-weights', frequencyListWeights);
     set((state) => ({ ...state, frequencyListWeights }));
   },
   serverResponse: null,
-  setServerResponse: (serverResponse: IServerResponse | null) => {
+  setServerResponse: (serverResponse: TServerResponse | null) => {
     set((state) => ({ ...state, serverResponse }));
   },
   textInput: '',

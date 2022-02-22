@@ -12,12 +12,12 @@ import {
   Link,
   Typography,
 } from '@mui/material';
-import { IWord } from '../interfaces/IWord';
+import { TWord } from '../types/TWord.type';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 type Props = {
-  word: IWord;
+  word: TWord;
 };
 
 interface ExpandMoreProps extends IconButtonProps {

@@ -1,4 +1,4 @@
-export interface IWord {
+export type TWord = {
   word: string;
   jmdict: string[];
   animeJDrama?: number;
