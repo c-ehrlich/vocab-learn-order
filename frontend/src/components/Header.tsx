@@ -146,14 +146,15 @@ const Header = () => {
               <Button
                 onClick={handlePopulateTextClick}
                 variant='outlined'
-                sx={{
-                  marginTop: 1,
-                  backgroundColor: COLOR_DARK,
-                  color: COLOR_LIGHT,
-                }}
+                sx={{ marginY: 1, color: COLOR_LIGHT }}
               >
                 Create Sample Input
               </Button>
+              <Grid item xs={12}>
+                <Typography align='center'>
+                  <Link href='https://github.com/c-ehrlich/vocab-learn-order'>view source code</Link>
+                </Typography>
+              </Grid>
             </Grid>
           </MaterialModal>
         </Toolbar>

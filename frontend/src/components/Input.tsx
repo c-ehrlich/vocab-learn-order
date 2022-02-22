@@ -114,6 +114,10 @@ const Input = (props: Props) => {
             variant='outlined'
             startIcon={<ClearIcon />}
             size='large'
+            sx={{
+              backgroundColor: COLOR_MID,
+              color: COLOR_DARK,
+            }}
           >
             Clear
           </Button>
@@ -125,10 +129,6 @@ const Input = (props: Props) => {
             variant='outlined'
             startIcon={<SearchIcon />}
             size='large'
-            sx={{
-              backgroundColor: COLOR_DARK,
-              color: COLOR_MID,
-            }}
           >
             Search
           </Button>
