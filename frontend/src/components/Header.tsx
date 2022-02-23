@@ -108,7 +108,7 @@ const Header = () => {
             }}
             justifyContent='center'
           >
-            word learn order
+            vocab learn order
           </LogoText>
           <IconButton aria-label='help' onClick={handleHelpModalOpen}>
             <HelpIcon fontSize='large' />

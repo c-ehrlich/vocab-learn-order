@@ -12,7 +12,7 @@ import { TWord } from '../schema/word.schema';
 
 const app = createServer();
 
-describe('Word Learn Order', () => {
+describe('Vocab Learn Order', () => {
   /**
    * Init
    */
@@ -35,7 +35,7 @@ describe('Word Learn Order', () => {
   /**
    * Tests
    */
-  describe('Get Word Learn Order Route', () => {
+  describe('Get Vocab Learn Order Route', () => {
     describe('Given a correct request containing words that are in JMDict', () => {
       it('should return an array of words', async () => {
         const words = requestTestWords;
