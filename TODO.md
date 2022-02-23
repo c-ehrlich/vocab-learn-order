@@ -66,39 +66,33 @@
 - [x] Frontend: flash some kind of message if we get >1 not found words, but 0 found words
 - [x] Weighting: set negative numbers to 0
 - [x] Write API tests (Jest)
-- [ ] Help menu shouldn't be able to create default input when we're already in results
-  - [ ] Do we need the help menu there at all? Or is something else maybe better?
+- [x] Help menu shouldn't be able to create default input when we're already in results
+  - [x] Do we need the help menu there at all? Or is something else maybe better?
 - [x] Figure out how to DRY - model, schema, interface, front/backend,...
   - [x] What's the smallest number of places I can define what my data looks like?
   - [x] Use Types instead of interfaces, and infer them from Zod schema
     - [*] https://github.com/colinhacks/zod/issues/53#issuecomment-738110750
     - [x] Currently not using the CreateWordInput / SearchWordsInput types ... USE THEM
-- [ ] Write Front End tests (React Testing)
-- [ ] Make it so the data generator doesn't create duplicate JLPT entries
-  - [ ] check: 明後日 should have 3, not 4 entries
-  - [ ] regenerate data, upload to dev and atlas
+- [x] Write Front End tests (React Testing)
 
-
-- [ ] Redesign
-  - [ ] Generate an awesome theme
-    - [ ] Find a color palette: https://lospec.com/palette-list
-    - [ ] Another reference: https://www.awwwards.com/trendy-web-color-palettes-and-material-design-color-schemes-tools.html ('ENID')
+- [x] Redesign
+  - [x] Generate an awesome theme
+    - [x] Find a color palette: https://lospec.com/palette-list
+    - [x] Another reference: https://www.awwwards.com/trendy-web-color-palettes-and-material-design-color-schemes-tools.html ('ENID')
       - [*] #607262, #f4e3d1, #faf9f4
-    - [ ] Test it: https://cimdalli.github.io/mui-theme-generator/
-    - [ ] MyColor.space
-  - [ ] Fonts
-    - [ ] Header: Garamond? https://fonts.google.com/specimen/EB+Garamond?preview.text=botanical%20beauty&preview.text_type=custom
-      - [ ] See if I can make it more narrow like on ENID https://enid.fm/case-studies/rowse-beauty
-        - [ ] font-stretch css property?
-    - [ ] Other European text: Poppins 400? https://fonts.google.com/specimen/Poppins or lighter weight?
-    - [ ] Buttons: Archivo 700 all-caps, bit more spacing? https://fonts.google.com/specimen/Archivo
-
+    - [x] Test it: https://cimdalli.github.io/mui-theme-generator/
+    - [x] MyColor.space
+  - [x] Fonts
+    - [x] Header: Garamond? https://fonts.google.com/specimen/EB+Garamond?preview.text=botanical%20beauty&preview.text_type=custom
+      - [x] See if I can make it more narrow like on ENID https://enid.fm/case-studies/rowse-beauty
+        - [x] font-stretch css property?
+    - [x] Other European text: Poppins 400? https://fonts.google.com/specimen/Poppins or lighter weight?
+    - [x] Buttons: Archivo 700 all-caps, bit more spacing? https://fonts.google.com/specimen/Archivo
 
 - [ ] Deploy
   - [ ] Server: Heroku
   - [ ] Client: Github Pages
     - [ ] ENV variables (2nd answer): https://stackoverflow.com/questions/53648652/how-to-use-environment-variables-in-github-page
-
 
 - [ ] Write Readme
   - [ ] Screenshot
@@ -114,3 +108,13 @@
       - [ ] end to end test suite (?, make sure that's the right expression) using Supertest
   - [ ] Give thanks to stuff I used
     - [ ] JLPT Frequency List: https://github.com/stephenmk/yomichan-jlpt-vocab
+
+- [ ] Make it so the data generator doesn't create duplicate JLPT entries when there are multiple readings
+  - [ ] check: 明後日 should have 3, not 4 entries
+  - [ ] regenerate data, upload to dev and atlas
+
+- [ ] Possible future features
+  - [ ] Filter results by JLPT
+    - [*] but... could only work for EITHER exact matches, or match every reading all the time, and neither seems ideal. JLPT lists map somewhat closely to frequency lists so maybe this isn't so important.
+  - [ ] Deinflection
+    - [*] Could just use Yomichan code (check what license they're using!)
