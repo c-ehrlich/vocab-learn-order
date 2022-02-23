@@ -1,9 +1,8 @@
 export default {
-  port: 1337,
+  port: '',
   // TODO move mongo uri to .env before deploying
-  dbUri: 'mongodb://localhost:27017/word-order',
   mongoUri: '',
   logLevel: 'info',
   privateKey: '',
-  origin: 'http://localhost:3000',
+  origin: '',
 }
