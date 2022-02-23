@@ -24,9 +24,12 @@ Installation and setup
 ### Deployment
 
 * backend to heroku
+create a new heroku app
+fill out the environment variables in heroku's web ui (see sample.env for a reference)
 heroku git:remote -a <name of heroku app>
 git subtree push --prefix backend heroku main
 * frontened to gh-pages (?)
+
 * how to do that from the command line in this single repo 
 
 ## Reflection

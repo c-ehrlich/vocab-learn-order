@@ -15,7 +15,7 @@ import '@fontsource/roboto-serif/900.css';
 function App() {
   return (
     <div className='App' data-testid='App'>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <ThemeProvider theme={defaultTheme}>
           <CssBaseline />
           <Header />
