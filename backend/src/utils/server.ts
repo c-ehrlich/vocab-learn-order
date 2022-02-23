@@ -8,9 +8,11 @@ function createServer() {
   const app = express();
 
   app.use(
-    cors({
-      origin: config.get('origin'),
-    })
+    cors(
+      // {
+      //   origin: config.get('origin'),
+      // }
+    )
   );
 
   app.use(express.json());
