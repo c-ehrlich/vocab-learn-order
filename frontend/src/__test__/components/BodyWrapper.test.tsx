@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import BodyWrapper from './BodyWrapper';
+import BodyWrapper from '../../components/BodyWrapper';
 
 test('renders children', () => {
   render(

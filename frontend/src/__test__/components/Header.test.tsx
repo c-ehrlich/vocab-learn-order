@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import useStore from '../store';
-import Header from './Header';
+import useStore from '../../store';
+import Header from '../../components/Header';
 import { act } from 'react-dom/test-utils';
-import { testServerResponse as serverResponse } from '../__test__/testData';
+import { testServerResponse as serverResponse } from '../testData';
 
 const originalState = useStore.getState();
 beforeEach(() => {

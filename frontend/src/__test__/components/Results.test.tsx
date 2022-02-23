@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { MemoryRouter } from 'react-router-dom';
-import useStore from '../store';
-import { testServerResponse as serverResponse } from '../__test__/testData';
-import Results from './Results';
+import useStore from '../../store';
+import { testServerResponse as serverResponse } from '../testData';
+import Results from '../../components/Results';
 
 // reset state
 const originalState = useStore.getState();

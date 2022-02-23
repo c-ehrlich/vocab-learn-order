@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import useStore from '../store';
-import Input from './Input';
+import useStore from '../../store';
+import Input from '../../components/Input';
 
 const originalState = useStore.getState();
 beforeEach(() => {

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import MaterialModal from './MaterialModal';
+import MaterialModal from '../../components/MaterialModal';
 
 test('It should contain its children', () => {
   render(
