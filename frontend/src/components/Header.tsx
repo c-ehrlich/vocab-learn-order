@@ -28,13 +28,13 @@ const LogoText = styled(Typography)({
 
 const Header = () => {
   const navigate = useNavigate();
-  const { setTextInput } = useStore();
+
+  const { setTextInput, serverResponse, setServerResponse } = useStore();
 
   const [anchorElFrequency, setAnchorElFrequency] =
     useState<null | HTMLElement>(null);
-  const { serverResponse, setServerResponse } = useStore();
-
   const [helpModalOpen, setHelpModalOpen] = useState(false);
+
   const handleHelpModalOpen = () => setHelpModalOpen(true);
   const handleHelpModalClose = () => setHelpModalOpen(false);
 
@@ -142,17 +142,24 @@ const Header = () => {
                 </li>
               </ul>
             </Box>
+            {serverResponse === null && (
+              <Grid container justifyContent='center'>
+                <Button
+                  onClick={handlePopulateTextClick}
+                  aria-label='Create Sample Input'
+                  variant='outlined'
+                  sx={{ marginY: 1, color: COLOR_LIGHT }}
+                >
+                  Create Sample Input
+                </Button>
+              </Grid>
+            )}
             <Grid container justifyContent='center'>
-              <Button
-                onClick={handlePopulateTextClick}
-                variant='outlined'
-                sx={{ marginY: 1, color: COLOR_LIGHT }}
-              >
-                Create Sample Input
-              </Button>
               <Grid item xs={12}>
                 <Typography align='center'>
-                  <Link href='https://github.com/c-ehrlich/vocab-learn-order'>view source code</Link>
+                  <Link href='https://github.com/c-ehrlich/vocab-learn-order'>
+                    view source code
+                  </Link>
                 </Typography>
               </Grid>
             </Grid>
