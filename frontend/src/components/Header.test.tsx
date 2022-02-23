@@ -3,38 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import useStore from '../store';
 import Header from './Header';
 import { act } from 'react-dom/test-utils';
-import { TServerResponse } from '../types/TServerResponse.type';
-
-const serverResponse: TServerResponse = {
-  words: [
-    {
-      word: '学校',
-      jmdict: ['school'],
-      animeJDrama: 479,
-      bccwj: 424,
-      innocent: 690,
-      kokugojiten: 860,
-      narou: 1193,
-      netflix: 457,
-      novels: 419,
-      vn: 485,
-      wikipedia: 60,
-      jlpt: [[5, 'N5']],
-    },
-    {
-      word: '停留所',
-      jmdict: ['stop (bus, tram, etc.)', 'station', 'stopping place'],
-      animeJDrama: 38693,
-      bccwj: 31415,
-      innocent: 19440,
-      kokugojiten: 30945,
-      netflix: 31139,
-      wikipedia: 2792,
-      jlpt: [[3, 'N3']],
-    },
-  ],
-  notFound: [],
-};
+import { testServerResponse as serverResponse } from '../__test__/testData';
 
 const originalState = useStore.getState();
 beforeEach(() => {
