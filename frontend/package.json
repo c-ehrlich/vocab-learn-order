@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "homepage": "https://c-ehrlich.github.io/vocab-learn-order",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
