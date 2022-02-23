@@ -112,6 +112,7 @@ const Input = (props: Props) => {
           <Button
             fullWidth
             onClick={() => setTextInput('')}
+            aria-label="clear"
             variant='outlined'
             startIcon={<ClearIcon />}
             size='large'
@@ -127,6 +128,7 @@ const Input = (props: Props) => {
           <Button
             fullWidth
             onClick={handleSearchButtonClick}
+            aria-label="search"
             variant='outlined'
             startIcon={<SearchIcon />}
             size='large'
