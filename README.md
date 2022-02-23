@@ -24,6 +24,8 @@ Installation and setup
 ### Deployment
 
 * backend to heroku
+heroku git:remote -a <name of heroku app>
+git subtree push --prefix backend heroku main
 * frontened to gh-pages (?)
 * how to do that from the command line in this single repo
 
