@@ -24,8 +24,6 @@ By letting users decide how highly to weigh each frequency list, this app is abl
 
 ## Installation and Setup
 
-Installation and setup
-
 ### Development
 
 1. Clone the repo
