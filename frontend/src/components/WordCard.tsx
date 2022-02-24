@@ -15,7 +15,6 @@ import {
 import { TWord } from '../types/TWord.type';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { COLOR_DARK, COLOR_MID } from '../themes/default';
 
 type Props = {
   word: TWord;
@@ -74,10 +73,6 @@ const WordCard = (props: Props) => {
           <Button
             size='medium'
             variant='outlined'
-            sx={{
-              backgroundColor: COLOR_DARK,
-              color: COLOR_MID,
-            }}
           >
             Jisho
           </Button>

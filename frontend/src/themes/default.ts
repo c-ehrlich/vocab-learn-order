@@ -66,10 +66,9 @@ export const defaultTheme = createTheme({
           fontFamily: 'Archivo',
           fontWeight: 700,
           backgroundColor: COLOR_DARK,
-          color: COLOR_MID,
+          color: COLOR_LIGHT,
           borderColor: COLOR_DARK,
           '&:hover': {
-            color: COLOR_MID,
             backgroundColor: COLOR_VERY_DARK,
             borderColor: COLOR_VERY_DARK,
           },
