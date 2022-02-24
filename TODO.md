@@ -88,11 +88,12 @@
         - [x] font-stretch css property?
     - [x] Other European text: Poppins 400? https://fonts.google.com/specimen/Poppins or lighter weight?
     - [x] Buttons: Archivo 700 all-caps, bit more spacing? https://fonts.google.com/specimen/Archivo
-
-- [ ] Deploy
-  - [ ] Server: Heroku
-  - [ ] Client: Github Pages
-    - [ ] ENV variables (2nd answer): https://stackoverflow.com/questions/53648652/how-to-use-environment-variables-in-github-page
+- [x] Deploy
+  - [x] Server: Heroku
+  - [x] Client: Github Pages
+    - [x] ENV variables (2nd answer): https://stackoverflow.com/questions/53648652/how-to-use-environment-variables-in-github-page
+- [x] FIX: JLPT arrays didn't populate properly in production DB
+- [x] Implement HashRouter so 
 
 - [ ] Write Readme
   - [ ] Screenshot
@@ -109,12 +110,14 @@
   - [ ] Give thanks to stuff I used
     - [ ] JLPT Frequency List: https://github.com/stephenmk/yomichan-jlpt-vocab
 
-- [ ] Make it so the data generator doesn't create duplicate JLPT entries when there are multiple readings
-  - [ ] check: 明後日 should have 3, not 4 entries
-  - [ ] regenerate data, upload to dev and atlas
 
-- [ ] Possible future features
+
+- [ ] Possible future additions
   - [ ] Filter results by JLPT
     - [*] but... could only work for EITHER exact matches, or match every reading all the time, and neither seems ideal. JLPT lists map somewhat closely to frequency lists so maybe this isn't so important.
   - [ ] Deinflection
     - [*] Could just use Yomichan code (check what license they're using!)
+  - [ ] In some edge cases words have duplicate JLPT entries - fix this
+    - [ ] The edge case where this seems to appear is words with two different unconventional readings, which both point back to the JLPT level of the common reading - for example 明後日 has "N5 (あさって), N5 (あさって), N3, N1"
+    - [ ] This could probably just be fixed in the backend to avoid having to recreate the entire dataset - but fixing it in the backend would be cleaner
+    - [ ] check: 明後日 should have 3, not 4 entries
