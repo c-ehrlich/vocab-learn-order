@@ -20,7 +20,7 @@ By letting users decide how highly to weigh each frequency list, this app is abl
 ## Technologies
 * __Backend__: MongoDB, Node / Express with TypeScript, Mongoose / TypeGoose, Zod, Jest / Supertest
 * __Frontend__: React with TypeScript, Zustand, React Router, Material UI, Jest / React Testing Library
-* __Sample Deployment__: MongoDB Atlast (Database), Heroku (Backend), GitHub Pages (Frontend)
+* __Sample Deployment__: MongoDB Atlas (Database), Heroku (Backend), GitHub Pages (Frontend)
 
 ## Installation and Setup
 
