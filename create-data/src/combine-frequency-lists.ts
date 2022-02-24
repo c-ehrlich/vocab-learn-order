@@ -27,12 +27,12 @@ let words: TWord[] = [];
 // Create variables that hold each Format3 Frequency List
 // [[word, "freq", freq]]
 type Format3Entry = [word: string, freqtext: string, freq: number];
-const animeJDrama: [Format3Entry] = require('./data-input/anime-jdrama.json');
-const bccwj: [Format3Entry] = require('./data-input/bccwj.json');
-const kokugojiten: [Format3Entry] = require('./data-input/kokugojiten.json');
-const netflix: [Format3Entry] = require('./data-input/netflix.json');
-const novels: [Format3Entry] = require('./data-input/novels.json');
-const wikipedia: [Format3Entry] = require('./data-input/wikipedia.json');
+const animeJDrama: Format3Entry[] = require('./data-input/anime-jdrama.json');
+const bccwj: Format3Entry[] = require('./data-input/bccwj.json');
+const kokugojiten: Format3Entry[] = require('./data-input/kokugojiten.json');
+const netflix: Format3Entry[] = require('./data-input/netflix.json');
+const novels: Format3Entry[] = require('./data-input/novels.json');
+const wikipedia: Format3Entry[] = require('./data-input/wikipedia.json');
 
 // Create a single file for the entire Innocent Corpus (also Format3)
 const innocent01: Format3Entry[] = require('./data-input/innocent-01.json');
