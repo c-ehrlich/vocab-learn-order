@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import useStore from '../store';
 import { TServerResponse } from '../types/TServerResponse.type';
-import { COLOR_DARK, COLOR_MID } from '../themes/default';
+import { COLOR_DARK, COLOR_LIGHT, COLOR_MID } from '../themes/default';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -119,6 +119,9 @@ const Input = (props: Props) => {
             sx={{
               backgroundColor: COLOR_MID,
               color: COLOR_DARK,
+              '&:hover': {
+                color: COLOR_LIGHT,
+              },
             }}
           >
             Clear
