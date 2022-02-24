@@ -94,21 +94,23 @@
     - [x] ENV variables (2nd answer): https://stackoverflow.com/questions/53648652/how-to-use-environment-variables-in-github-page
 - [x] FIX: JLPT arrays didn't populate properly in production DB
 - [x] Implement HashRouter so 
+- [x] Text on contrast buttons is too yellow
+  - [x] Try: Same off-white as textarea input
 
-- [ ] Write Readme
-  - [ ] Screenshot
-  - [ ] Tech stack:
+- [x] Write Readme
+  - [x] Screenshot
+  - [x] Tech stack:
     - Frontend: React + TypeScript, React Router, Zustand, Material UI, (React Testing Library)
     - Backend: Node + TypeScript, Mongoose + Typegoose, Zod, Jest/Supertest
     - DB: MongoDB on Atlas, about 200k documents of data I parsed myself
-  - [ ] Show off cool stuff that I did
-  - [ ] Say what I'm proud of
-    - [ ] "real" API: TypeScript, TypeGoose, Zod
-      - [ ] propery api structure / folder layout
-      - [ ] Schema validation on API request
-      - [ ] end to end test suite (?, make sure that's the right expression) using Supertest
-  - [ ] Give thanks to stuff I used
-    - [ ] JLPT Frequency List: https://github.com/stephenmk/yomichan-jlpt-vocab
+  - [x] Show off cool stuff that I did
+  - [x] Say what I'm proud of
+    - [x] "real" API: TypeScript, TypeGoose, Zod
+      - [x] propery api structure / folder layout
+      - [x] Schema validation on API request
+      - [x] backend test suite uising supertest, frontend test suite using react testing library
+  - [x] Give thanks to stuff I used
+    - [x] JLPT Frequency List: https://github.com/stephenmk/yomichan-jlpt-vocab
 
 
 
