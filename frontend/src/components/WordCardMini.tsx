@@ -1,8 +1,12 @@
-import { Button, Card, CardActions, CardHeader, Link } from '@mui/material';
+import { Button, Card, CardActions, CardHeader, IconButton, Link } from '@mui/material';
+import useStore from '../store';
+import DoneIcon from '@mui/icons-material/Done';
 
 type Props = { word: string };
 
 const WordCardMini = (props: Props) => {
+  const { removeNotFoundWordFromServerResponse } = useStore();
+
   return (
     <Card aria-label="word-card-mini" sx={{ maxWidth: '100%' }}>
       <CardHeader
@@ -13,6 +17,11 @@ const WordCardMini = (props: Props) => {
           fontWeight: 400,
           fontSize: '24pt',
         }}
+        action={
+          <IconButton aria-label="settings" onClick={() => {removeNotFoundWordFromServerResponse(props.word)}}>
+            <DoneIcon />
+          </IconButton>
+        }
       />
       <CardActions sx={{ paddingLeft: 2, paddingBottom: 2 }}>
         <Link href={`https://jisho.org/search/${props.word}`} underline='none'>

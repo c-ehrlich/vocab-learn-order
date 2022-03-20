@@ -15,6 +15,8 @@ import {
 import { TWord } from '../types/TWord.type';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DoneIcon from '@mui/icons-material/Done';
+import useStore from '../store';
 
 type Props = {
   word: TWord;
@@ -39,6 +41,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 const WordCard = (props: Props) => {
   const [expanded, setExpanded] = useState(false);
+  const { removeWordFromServerResponse } = useStore();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -54,6 +57,11 @@ const WordCard = (props: Props) => {
           fontSize: '24pt',
         }}
         title={props.word.word}
+        action={
+          <IconButton aria-label="settings" onClick={() => {removeWordFromServerResponse(props.word)}}>
+            <DoneIcon />
+          </IconButton>
+        }
       />
       <CardContent>
         <Typography variant='body1' color='text.secondary'>
