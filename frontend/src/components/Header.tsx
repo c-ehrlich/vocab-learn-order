@@ -89,7 +89,6 @@ const Header = () => {
             </Menu>
           </Box>
           <LogoText
-            fontSize='28pt'
             fontFamily='EB Garamond'
             fontWeight='400'
             letterSpacing={-0.5}
@@ -99,6 +98,7 @@ const Header = () => {
               color: defaultTheme.palette.primary.main,
             }}
             justifyContent='center'
+            textAlign='center'
           >
             vocab learn order
           </LogoText>
@@ -129,12 +129,25 @@ const Header = () => {
   );
 };
 
-const LogoText = styled(Typography)({
-  userSelect: 'none',
+const LogoText = styled(Typography)`
+  /* userSelect: 'none',
   WebkitTouchCallout: 'none',
   WebkitUserSelect: 'none',
   MozUserSelect: 'none',
-  msUserSelect: 'none',
-});
+  msUserSelect: 'none', */
+
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  font-size: 28pt;
+
+  @media (max-width: 480px) {
+    font-size: 18pt;
+  }
+  
+`;
 
 export default Header;

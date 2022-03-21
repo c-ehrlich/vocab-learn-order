@@ -58,9 +58,14 @@ const WordCard = (props: Props) => {
         }}
         title={props.word.word}
         action={
-          <IconButton aria-label="settings" onClick={() => {removeWordFromServerResponse(props.word)}}>
+          <CheckIconButton
+            aria-label='settings'
+            onClick={() => {
+              removeWordFromServerResponse(props.word);
+            }}
+          >
             <DoneIcon />
-          </IconButton>
+          </CheckIconButton>
         }
       />
       <CardContent>
@@ -74,43 +79,42 @@ const WordCard = (props: Props) => {
       </CardContent>
       {/* vvv can add disableSpacing */}
       <CardActions sx={{ paddingX: 2, paddingBottom: 2 }}>
-        <Link
-          href={`https://jisho.org/search/${props.word.word}`}
-          underline='none'
-        >
-          <Button
-            size='medium'
-            variant='outlined'
+        <CardActionButtons>
+          <LinkWithoutMargin
+            href={`https://jisho.org/search/${props.word.word}`}
+            underline='none'
           >
-            Jisho
-          </Button>
-        </Link>
-        <Link
-          href={`https://youglish.com/pronounce/${props.word.word}/japanese`}
-          color='inherit'
-          underline='none'
-        >
-          <Button size='medium' variant='contained'>
-            YouGlish
-          </Button>
-        </Link>
-        <Link
-          href={`https://www.immersionkit.com/dictionary?keyword=${props.word.word}`}
-          color='inherit'
-          underline='none'
-        >
-          <Button size='medium' variant='contained'>
-            ImmersionKit
-          </Button>
-        </Link>
-        <ExpandMore
+            <Button size='medium' variant='outlined'>
+              Jisho
+            </Button>
+          </LinkWithoutMargin>
+          <LinkWithoutMargin
+            href={`https://youglish.com/pronounce/${props.word.word}/japanese`}
+            color='inherit'
+            underline='none'
+          >
+            <Button size='medium' variant='contained'>
+              YouGlish
+            </Button>
+          </LinkWithoutMargin>
+          <LinkWithoutMargin
+            href={`https://www.immersionkit.com/dictionary?keyword=${props.word.word}`}
+            color='inherit'
+            underline='none'
+          >
+            <Button size='medium' variant='contained'>
+              ImmersionKit
+            </Button>
+          </LinkWithoutMargin>
+        </CardActionButtons>
+        <BottomAlignedExpandMore
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label='show more'
         >
           <ExpandMoreIcon />
-        </ExpandMore>
+        </BottomAlignedExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout='auto' unmountOnExit>
         <CardContent>
@@ -201,5 +205,31 @@ const WordCard = (props: Props) => {
     </Card>
   );
 };
+
+const CheckIconButton = styled(IconButton)`
+  margin-right: 8px;
+  margin-top: 4px;
+`;
+
+const CardActionButtons = styled(CardActions)`
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  @media (max-width: 460px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px 0;
+  }
+`;
+
+const LinkWithoutMargin = styled(Link)`
+  margin: 0px !important;
+`;
+
+const BottomAlignedExpandMore = styled(ExpandMore)`
+  align-self: flex-end;
+  justify-self: end;
+`;
 
 export default WordCard;
