@@ -115,6 +115,10 @@
 
 
 - [ ] Possible future additions
+  - [ ] Styling
+    - [ ] checkmark button is spaced weirdly relative to bottom right button
+    - [ ] Add shrink animation when an item is marked done
+    - [x] Always keep NavBar on screen
   - [ ] Filter results by JLPT
     - [*] but... could only work for EITHER exact matches, or match every reading all the time, and neither seems ideal. JLPT lists map somewhat closely to frequency lists so maybe this isn't so important.
   - [ ] Deinflection

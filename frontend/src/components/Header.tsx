@@ -51,7 +51,7 @@ const Header = () => {
 
   return (
     <AppBar
-      position='static'
+      position='sticky'
       sx={{ backgroundColor: defaultTheme.palette.primary.dark }}
     >
       <Container maxWidth='md' disableGutters>
