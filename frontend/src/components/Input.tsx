@@ -53,7 +53,7 @@ const Input = (props: Props) => {
         }),
       }
     );
-    
+
     const data: TServerResponse = await Response.json();
     if (data.words.length > 0) {
       setServerResponse(data);
@@ -89,13 +89,13 @@ const Input = (props: Props) => {
         value={textInput}
         onChange={(e) => setTextInput(e.target.value)}
         sx={{
-          fontFamily: "Hiragino Kaku Pro, Meiryo",
+          fontFamily: 'Hiragino Kaku Pro, Meiryo',
           marginTop: 2,
-          "& .MuiOutlinedInput-root": {
-            "& > fieldset": {
-              borderColor: `${COLOR_DARK} !important`
-            }
-          }
+          '& .MuiOutlinedInput-root': {
+            '& > fieldset': {
+              borderColor: `${COLOR_DARK} !important`,
+            },
+          },
         }}
         fullWidth
       />
@@ -112,7 +112,7 @@ const Input = (props: Props) => {
           <Button
             fullWidth
             onClick={() => setTextInput('')}
-            aria-label="clear"
+            aria-label='clear'
             variant='outlined'
             startIcon={<ClearIcon />}
             size='large'
@@ -131,7 +131,7 @@ const Input = (props: Props) => {
           <Button
             fullWidth
             onClick={handleSearchButtonClick}
-            aria-label="search"
+            aria-label='search'
             variant='outlined'
             startIcon={<SearchIcon />}
             size='large'

@@ -17,6 +17,8 @@ import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import DoneIcon from '@mui/icons-material/Done';
 import useStore from '../store';
+import { motion } from 'framer-motion';
+import animations from '../themes/animations';
 
 type Props = {
   word: TWord;
@@ -48,7 +50,7 @@ const WordCard = (props: Props) => {
   };
 
   return (
-    <Card aria-label='word-card' sx={{ maxWidth: '100%' }}>
+    <Card component={motion.div} {...animations} layout aria-label='word-card' sx={{ maxWidth: '100%' }}>
       <CardHeader
         lang='ja'
         titleTypographyProps={{

@@ -9,6 +9,8 @@ import {
 } from '@mui/material';
 import useStore from '../store';
 import DoneIcon from '@mui/icons-material/Done';
+import { motion } from 'framer-motion';
+import animations from '../themes/animations';
 
 type Props = { word: string };
 
@@ -16,7 +18,7 @@ const WordCardMini = (props: Props) => {
   const { removeNotFoundWordFromServerResponse } = useStore();
 
   return (
-    <Card aria-label='word-card-mini' sx={{ maxWidth: '100%' }}>
+    <Card component={motion.div} {...animations} layout aria-label='word-card-mini' sx={{ maxWidth: '100%' }}>
       <CardHeader
         lang='ja'
         title={props.word}
