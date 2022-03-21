@@ -19,9 +19,9 @@ const SaveModalContents = () => {
 
   const createOutput = useMemo((): string => {
     if (serverResponse) {
-      const words: string[] = [];
+      let words: string[] = [];
       serverResponse.words.forEach((word) => words.push(word.word));
-      words.concat(serverResponse.notFound);
+      serverResponse.notFound.forEach((word) => words.push(word));
       return words.join(', ');
     }
     return '';
