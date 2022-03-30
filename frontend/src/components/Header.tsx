@@ -15,9 +15,9 @@ import { useState } from 'react';
 import MaterialModal from './MaterialModal';
 import { useNavigate } from 'react-router-dom';
 import { defaultTheme } from '../themes/default';
-import SaveModalContents from './modalContents/SaveModalContents';
 import styled from 'styled-components';
 import HelpModalContents from './modalContents/HelpModalContents';
+import { Alert, Snackbar } from '@mui/material';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -31,9 +31,10 @@ const Header = () => {
   const handleHelpModalOpen = () => setHelpModalOpen(true);
   const handleHelpModalClose = () => setHelpModalOpen(false);
 
-  const [saveModalOpen, setSaveModalOpen] = useState(false);
-  const handleSaveModalOpen = () => setSaveModalOpen(true);
-  const handleSaveModalClose = () => setSaveModalOpen(false);
+  const [successSnackbarOpen, setSuccessSnackbarOpen] =
+    useState<boolean>(false);
+  const [failureSnackbarOpen, setFailureSnackbarOpen] =
+    useState<boolean>(false);
 
   const handleOpenFrequencyMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElFrequency(event.currentTarget);
@@ -47,6 +48,30 @@ const Header = () => {
     setServerResponse(null);
     setTextInput('');
     navigate('/', { replace: true });
+  };
+
+  const saveRemainingWordsToClipboard = async (): Promise<void> => {
+    if (serverResponse) {
+      let words: string[] = [];
+      serverResponse.words.forEach((word) => words.push(word.word));
+      serverResponse.notFound.forEach((word) => words.push(word));
+      const text = words.join(', ');
+      await navigator.clipboard.writeText(text);
+      if ((await navigator.clipboard.readText()) === text) {
+        temporarilyOpenSnackbar(setSuccessSnackbarOpen);
+      } else {
+        temporarilyOpenSnackbar(setFailureSnackbarOpen);
+      }
+    }
+  };
+
+  const temporarilyOpenSnackbar = (
+    openStateSetter: (value: React.SetStateAction<boolean>) => void
+  ) => {
+    openStateSetter(true);
+    setTimeout(() => {
+      openStateSetter(false);
+    }, 3000);
   };
 
   return (
@@ -103,7 +128,7 @@ const Header = () => {
             vocab learn order
           </LogoText>
           {serverResponse ? (
-            <IconButton aria-label='save' onClick={handleSaveModalOpen}>
+            <IconButton aria-label='save' onClick={async () => {saveRemainingWordsToClipboard()}}>
               <SaveAltIcon fontSize='large' />
             </IconButton>
           ) : (
@@ -117,14 +142,26 @@ const Header = () => {
           >
             <HelpModalContents handleClose={handleHelpModalClose} />
           </MaterialModal>
-          <MaterialModal
-            open={saveModalOpen}
-            handleClose={handleSaveModalClose}
-          >
-            <SaveModalContents />
-          </MaterialModal>
         </Toolbar>
       </Container>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        open={successSnackbarOpen}
+        onClose={() => setSuccessSnackbarOpen(false)}
+        sx={{ width: '100%' }}
+      >
+        <Alert severity='success'>Successfully copied to clipboard</Alert>
+      </Snackbar>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        open={failureSnackbarOpen}
+        onClose={() => setFailureSnackbarOpen(false)}
+        sx={{ width: '100%' }}
+      >
+        <Alert severity='warning'>
+          Could not copy to clipboard. Please copy manually
+        </Alert>
+      </Snackbar>
     </AppBar>
   );
 };

@@ -113,8 +113,10 @@
 - [x] Add "done" button to each card to remove it from the list
 - [x] Add a button to the bottom (or hovering?) to add revised word list to clipboard
 
+## Bugs
+  - [ ] Modal behaves weirdly at small screen heights
 
-- [ ] Possible future additions
+## Possible future additions
   - [ ] Styling
     - [ ] checkmark button is spaced weirdly relative to bottom right button
     - [ ] Add shrink animation when an item is marked done
@@ -128,6 +130,6 @@
     - [ ] This could probably just be fixed in the backend to avoid having to recreate the entire dataset - but fixing it in the backend would be cleaner
     - [ ] check: 明後日 should have 3, not 4 entries
 
-- [ ] Refactoring
+## Refactoring
   - [ ] Turn removeWord and removeNotFound into one function by using good typescript
   - [ ] Make WordCard and WordCardMini into one component that either takes a variable to know which one it is, or decides itself based on props
