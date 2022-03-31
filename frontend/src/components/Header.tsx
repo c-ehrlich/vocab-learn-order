@@ -53,7 +53,12 @@ const Header = () => {
   const saveRemainingWordsToClipboard = async (): Promise<void> => {
     if (serverResponse) {
       let words: string[] = [];
-      serverResponse.words.forEach((word) => words.push(word.word));
+      serverResponse.words.forEach((word) => {
+        const multiplier = word.multiplier || 1;
+        for (let i = 0; i < multiplier; i++) {
+          words.push(word.word)
+        }
+      });
       serverResponse.notFound.forEach((word) => words.push(word));
       const text = words.join(', ');
       await navigator.clipboard.writeText(text);

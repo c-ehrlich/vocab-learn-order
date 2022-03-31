@@ -1,4 +1,5 @@
 import WordModel, { Word } from '../model/word.model';
+import { TWord } from '../schema/word.schema';
 
 export function createOneWord(word: Word) {
   return WordModel.create(word);
@@ -12,11 +13,12 @@ export function createManyWords(words: Word[]) {
 }
 
 export function findOneWord(word: string) {
-  return WordModel.findOne({ word }).select('-_id -__v');
+  return WordModel.findOne({ word }).select('-_id -__v').lean();
 }
 
-export function findManyWords(words: string[]) {
-  return WordModel.find({ word: { $in: words } }).select('-_id -__v');
+export async function findManyWords(words: string[]): Promise<TWord[]> {
+  const query: TWord[] = await WordModel.find({ word: { $in: words } }).select('-_id -__v').lean();
+  return query;
 }
 
 export function deleteAllWords() {

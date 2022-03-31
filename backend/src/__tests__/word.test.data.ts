@@ -1,4 +1,4 @@
-import { TFrequencyListWeights, TWord } from "../schema/word.schema";
+import { TFrequencyListWeights, TWord } from '../schema/word.schema';
 
 export const wordTestData: TWord[] = [
   {
@@ -28,7 +28,7 @@ export const wordTestData: TWord[] = [
   },
 ];
 
-export const requestTestWords: string[] = wordTestData.map(word => word.word);
+export const requestTestWords: string[] = wordTestData.map((word) => word.word);
 export const requestTestWeights: TFrequencyListWeights = {
   animeJDrama: 40,
   bccwj: 30,
@@ -40,3 +40,14 @@ export const requestTestWeights: TFrequencyListWeights = {
   vn: 20,
   wikipedia: 30,
 };
+
+export const duplicateTestData = [
+  '学校',
+  '残念',
+  '意志',
+  '学校',
+  '劣等感',
+  '学校',
+  '意志',
+  '怠る',
+];

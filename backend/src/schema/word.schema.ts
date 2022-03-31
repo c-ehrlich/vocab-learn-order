@@ -7,6 +7,7 @@ export const createWordSchema = object({
   jmdict: array(string({
     required_error: 'JMDict definition is required',
   })).min(1, 'At least one JMDict definition required'),
+  multiplier: number().optional(),
   jlpt: tuple([number(), string()]).array().optional(),
   animeJDrama: number().optional(),
   bccwj: number().optional(),

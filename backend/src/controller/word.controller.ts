@@ -11,6 +11,8 @@ import {
 import { logger } from '@typegoose/typegoose/lib/logSettings';
 import sortWords from '../utils/sortWords';
 import { TFrequencyListWeights, TSearchWordsInput, TWord } from '../schema/word.schema';
+import findDuplicates from '../utils/findDuplicates';
+import createCounts from '../utils/createCounts';
 
 /**
  * We are assuming that input is sanitized in the frontend
@@ -28,8 +30,15 @@ export async function findWordsHandler(req: Request<{}, {}, TSearchWordsInput>, 
     });
   }
 
+  // create list of words that exist multiple times
+  const duplicates = findDuplicates(inputWords);
+
   const response = await findManyWords(inputWords);
-  const words = sortWords(response, weights);
+
+  const responseWithCounts = createCounts(response, duplicates);
+  console.log(JSON.stringify(responseWithCounts[0]))
+  
+  const words: TWord[] = sortWords(responseWithCounts, weights);
 
   const notFound = findMissingWords(inputWords, words);
 

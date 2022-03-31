@@ -7,10 +7,24 @@ import {
   wordTestData,
   requestTestWords,
   requestTestWeights,
+  duplicateTestData,
 } from './word.test.data';
 import { TWord } from '../schema/word.schema';
+import findDuplicates from '../utils/findDuplicates';
 
 const app = createServer();
+
+describe('Helper functions', () => {
+  describe('findDuplicates', () => {
+    it('should correctly filter a list of words', () => {
+      const result = findDuplicates(duplicateTestData);
+      expect(result).toStrictEqual([
+        { word: '学校', count: 3 },
+        { word: '意志', count: 2 },
+      ]);
+    });
+  });
+});
 
 describe('Vocab Learn Order', () => {
   /**
@@ -133,7 +147,7 @@ describe('Vocab Learn Order', () => {
 
         for (const key of Object.keys(allWeights)) {
           const words = requestTestWords;
-          const weights: any = {...requestTestWeights};
+          const weights: any = { ...requestTestWeights };
           delete weights[key];
 
           const { statusCode, body } = await supertest(app)
@@ -155,7 +169,7 @@ describe('Vocab Learn Order', () => {
 
         for (const key of Object.keys(allWeights)) {
           const words = requestTestWords;
-          let weights: any = {...requestTestWeights};
+          let weights: any = { ...requestTestWeights };
           weights[key] = '30';
 
           const { statusCode, body } = await supertest(app)
@@ -175,7 +189,7 @@ describe('Vocab Learn Order', () => {
       it('should return the appropriate error', async () => {
         const words = requestTestWords;
         let weights: any = requestTestWeights;
-        weights = {...weights, foo: 20};
+        weights = { ...weights, foo: 20 };
 
         const { statusCode, body } = await supertest(app)
           .post('/api/learnorder')
