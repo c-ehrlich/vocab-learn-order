@@ -19,6 +19,8 @@ import DoneIcon from '@mui/icons-material/Done';
 import useStore from '../store';
 import { motion } from 'framer-motion';
 import animations from '../themes/animations';
+import { setLocalStorage } from '../utils/localStorageHelpers';
+import { serializeWords } from '../utils/serializeWords';
 
 type Props = {
   word: TWord;
@@ -43,14 +45,20 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 const WordCard = (props: Props) => {
   const [expanded, setExpanded] = useState(false);
-  const { removeWordFromServerResponse } = useStore();
+  const { serverResponse, removeWordFromServerResponse } = useStore();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <Card component={motion.div} {...animations} layout aria-label='word-card' sx={{ maxWidth: '100%' }}>
+    <Card
+      component={motion.div}
+      {...animations}
+      layout
+      aria-label='word-card'
+      sx={{ maxWidth: '100%' }}
+    >
       <CardHeader
         lang='ja'
         titleTypographyProps={{
@@ -64,6 +72,12 @@ const WordCard = (props: Props) => {
             aria-label='settings'
             onClick={() => {
               removeWordFromServerResponse(props.word);
+              const savedWords = serializeWords(
+                serverResponse!.words,
+                serverResponse!.notFound
+              );
+              console.log(savedWords);
+              setLocalStorage('vocablist', JSON.stringify(savedWords));
             }}
           >
             <DoneIcon />

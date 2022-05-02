@@ -7,6 +7,7 @@ import { TServerResponse } from '../types/TServerResponse.type';
 import { COLOR_DARK, COLOR_LIGHT, COLOR_MID } from '../themes/default';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { setLocalStorage } from '../utils/localStorageHelpers';
 
 type Props = {};
 
@@ -57,6 +58,7 @@ const Input = (props: Props) => {
     const data: TServerResponse = await Response.json();
     if (data.words.length > 0) {
       setServerResponse(data);
+      setLocalStorage('vocablist', JSON.stringify(data));
       navigate('/results');
     } else {
       setSnackbarText('Bad input - check the help menu for sample input.');

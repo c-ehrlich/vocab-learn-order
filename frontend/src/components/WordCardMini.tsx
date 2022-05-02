@@ -11,14 +11,22 @@ import useStore from '../store';
 import DoneIcon from '@mui/icons-material/Done';
 import { motion } from 'framer-motion';
 import animations from '../themes/animations';
+import { serializeWords } from '../utils/serializeWords';
+import { setLocalStorage } from '../utils/localStorageHelpers';
 
 type Props = { word: string };
 
 const WordCardMini = (props: Props) => {
-  const { removeNotFoundWordFromServerResponse } = useStore();
+  const { serverResponse, removeNotFoundWordFromServerResponse } = useStore();
 
   return (
-    <Card component={motion.div} {...animations} layout aria-label='word-card-mini' sx={{ maxWidth: '100%' }}>
+    <Card
+      component={motion.div}
+      {...animations}
+      layout
+      aria-label='word-card-mini'
+      sx={{ maxWidth: '100%' }}
+    >
       <CardHeader
         lang='ja'
         title={props.word}
@@ -32,6 +40,11 @@ const WordCardMini = (props: Props) => {
             aria-label='settings'
             onClick={() => {
               removeNotFoundWordFromServerResponse(props.word);
+              const savedWords = serializeWords(
+                serverResponse!.words,
+                serverResponse!.notFound
+              );
+              setLocalStorage('vocablist', JSON.stringify(savedWords));
             }}
           >
             <DoneIcon />
