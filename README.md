@@ -2,6 +2,8 @@
 
 Live Demo: [https://c-ehrlich.github.io/vocab-learn-order](https://c-ehrlich.github.io/vocab-learn-order)
 
+The backend is on a free Heroku instance, so please allow it a few seconds to spin up :)
+
 ![Vocab Learn Order Screenshot](https://user-images.githubusercontent.com/8353666/155544745-745b1201-b071-426d-aac8-60875831d57e.png)
 
 Vocab Learn Order is a web app for Japanese learners. Many immersion learners know the experience of listening to podcasts or other audio material in their target language, looking up unknown words, and then saving those words in a Notes file with the intent to learn them later with a tool such as Anki. But suddenly the file is several hundred words long and it's difficult to know which words to learn first to get the greatest benefit.
