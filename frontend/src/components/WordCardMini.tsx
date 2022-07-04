@@ -54,7 +54,7 @@ const WordCardMini = (props: Props) => {
       <CardActions sx={{ paddingLeft: 2, paddingBottom: 2 }}>
         <CardActionButtons>
           <LinkWithoutMargin
-            href={`https://jpdb.io/search?q=${props.word}0&lang=japanese`}
+            href={`https://jpdb.io/search?q=${props.word}&lang=japanese`}
             target='_blank'
             rel='noopener'
             underline='none'

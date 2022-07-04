@@ -97,7 +97,7 @@ const WordCard = (props: Props) => {
       <CardActions sx={{ paddingX: 2, paddingBottom: 2 }}>
         <CardActionButtons>
           <LinkWithoutMargin
-            href={`https://jpdb.io/search?q=${props.word.word}0&lang=japanese`}
+            href={`https://jpdb.io/search?q=${props.word.word}&lang=japanese`}
             target='_blank'
             rel='noopener'
             underline='none'
