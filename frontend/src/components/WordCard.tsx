@@ -89,7 +89,7 @@ const WordCard = (props: Props) => {
           {
             props.word.jmdict.join(
               ', '
-            ) /* the DB only has words that are in JMDict */
+            ) /* this works because the DB only has words that are in JMDict */
           }
         </Typography>
       </CardContent>
@@ -97,15 +97,19 @@ const WordCard = (props: Props) => {
       <CardActions sx={{ paddingX: 2, paddingBottom: 2 }}>
         <CardActionButtons>
           <LinkWithoutMargin
-            href={`https://jisho.org/search/${props.word.word}`}
+            href={`https://jpdb.io/search?q=${props.word.word}0&lang=japanese`}
+            target='_blank'
+            rel='noopener'
             underline='none'
           >
             <Button size='medium' variant='outlined'>
-              Jisho
+              JPDB
             </Button>
           </LinkWithoutMargin>
           <LinkWithoutMargin
             href={`https://youglish.com/pronounce/${props.word.word}/japanese`}
+            target='_blank'
+            rel='noopener'
             color='inherit'
             underline='none'
           >
@@ -115,6 +119,8 @@ const WordCard = (props: Props) => {
           </LinkWithoutMargin>
           <LinkWithoutMargin
             href={`https://www.immersionkit.com/dictionary?keyword=${props.word.word}`}
+            target='_blank'
+            rel='noopener'
             color='inherit'
             underline='none'
           >

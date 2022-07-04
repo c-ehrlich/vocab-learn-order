@@ -54,15 +54,19 @@ const WordCardMini = (props: Props) => {
       <CardActions sx={{ paddingLeft: 2, paddingBottom: 2 }}>
         <CardActionButtons>
           <LinkWithoutMargin
-            href={`https://jisho.org/search/${props.word}`}
+            href={`https://jpdb.io/search?q=${props.word}0&lang=japanese`}
+            target='_blank'
+            rel='noopener'
             underline='none'
           >
             <Button size='medium' variant='contained'>
-              Jisho
+              JPDB
             </Button>
           </LinkWithoutMargin>
           <LinkWithoutMargin
             href={`https://youglish.com/pronounce/${props.word}/japanese`}
+            target='_blank'
+            rel='noopener'
             color='inherit'
             underline='none'
           >
@@ -72,6 +76,8 @@ const WordCardMini = (props: Props) => {
           </LinkWithoutMargin>
           <LinkWithoutMargin
             href={`https://www.immersionkit.com/dictionary?keyword=${props.word}`}
+            target='_blank'
+            rel='noopener'
             color='inherit'
             underline='none'
           >
